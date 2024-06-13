@@ -1,4 +1,5 @@
 const { ethers } = require("ethers");
+import Deployments from "../scripts/deployments.json";
 const reverseRegistrarABI = require("../artifacts/contracts/registrar/ReverseRegistrar.sol/ReverseRegistrar.json"); // Replace with the path to your ReverseRegistrar ABI file
 const resolverABI = require("../artifacts/contracts/resolvers/Resolver.sol/Resolver.json"); // Replace with the path to your Resolver ABI file
 
@@ -9,8 +10,8 @@ async function resolveAddressToENSName(address) {
   console.log(address);
 
   // Replace with the reverse registrar contract address and resolver address for the reverse resolution
-  const reverseRegistrarAddress = "0x71d2EBF08bF4FcB82dB5ddE46677263F4c534ef3";
-  const resolverAddress = "0xCd9BC6cE45194398d12e27e1333D5e1d783104dD";
+  const reverseRegistrarAddress = Deployments.toolkit.reverseRegistrar;
+  const resolverAddress = Deployments.toolkit.resolver;
 
   // Connect to the reverse registrar contract
   const reverseRegistrar = new ethers.Contract(

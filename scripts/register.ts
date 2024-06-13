@@ -1,20 +1,21 @@
+import Deployments from "../scripts/deployments.json";
 const { ethers } = require("ethers");
 const web3Utils = require("web3-utils");
 
-const { toBigInt, toHex, hexToBytes, bytesToHex, sha3 } = web3Utils;
+const { toBigInt } = web3Utils;
 
-const contractAddress = "0x76d05F58D14c0838EC630C8140eDC5aB7CD159Dc";
-const resolverAddress = "0xCd9BC6cE45194398d12e27e1333D5e1d783104dD";
+//registrar controllar address
+const contractAddress = Deployments.toolkit.registrar;
+const resolverAddress = Deployments.toolkit.resolver;
 const privateKey =
   "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a";
-const identifier =
-  "844854483209478065222019049185957727490244193226618995927553702223575749";
+const identifier = Deployments.tld.identifier;
 const providerUrl = "http://127.0.0.1:8545/";
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
 
-const domainToRegister = "lodess";
+const domainToRegister = "jayambe";
 const registrationDuration = 31556952; // 1 year in seconds
 
 async function registerDomain() {

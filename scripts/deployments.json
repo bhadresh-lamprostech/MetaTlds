@@ -1,0 +1,40 @@
+{
+  "toolkit": {
+    "registry": "0x4826533B4897376654Bb4d4AD88B7faFD0C98528",
+    "sann": "0x0E801D84Fa97b50751Dbf25036d067dCf18858bF",
+    "registrar": "0xCD8a1C3ba11CF5ECfa6267617243239504a98d90",
+    "usdOracle": "0x70e0bA845a1A0F2DA3359C97E0285013525FFC49",
+    "platformConfig": "0x9d4454B023096f34B160D6B654540c56A1F81688",
+    "priceOracle": "0x36C02dA8a0983159322a80FFE9F24b1acfF8B570",
+    "prepaidPlatformFee": "0x4c5859f0F772848b2D91F1D83E2Fe57935348029",
+    "giftCardBase": "0x2bdCC0de6bE1f7D2ee689a0342D76F52E8EFABa3",
+    "giftCardVoucher": "0x7969c5eD335650692Bc04293B07F5BF2e7A673C0",
+    "giftCardLedger": "0x7bc06c482DEAd17c0e297aFbC32f6e63d3846650",
+    "giftCardController": "0xc351628EB244ec633d5f21fBD6621e1a683B1181",
+    "referralHub": "0x1429859428C0aBc9C2C47C8Ee9FBaf82cFA0F20f",
+    "baseCreator": "0x162A433068F51e18b7d13932F27e66a3f99E6890",
+    "preRegistrationCreator": "0x922D6956C99E12DFeB3224DEA977D0939758A1Fe",
+    "tldFactory": "0x04C89607413713Ec9775E14b954286519d836FEf",
+    "resolver": "0x5081a39b8A5f0E35a8D959395a630b68B74Dd30f",
+    "reverseRegistrar": "0x1291Be112d480055DaFd8a610b7d1e203891C274"
+  },
+  "tld": {
+    "identifier": "844858081049864971509160763091871182726319676366353236643527577540355621",
+    "tldBase": "0xa1305C5F918A979162157419c529cb4F02c084d3",
+    "referralComissions": [
+      {
+        "minimumReferralCount": 1,
+        "referrerRate": 10,
+        "refereeRate": 5,
+        "isValid": true
+      },
+      {
+        "minimumReferralCount": 3,
+        "referrerRate": 15,
+        "refereeRate": 10,
+        "isValid": true
+      }
+    ],
+    "publicRegistrationStartTime": 1718283261
+  }
+}

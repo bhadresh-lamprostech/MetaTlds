@@ -4,10 +4,13 @@ import { ethers } from "hardhat";
 import { time } from "@nomicfoundation/hardhat-network-helpers";
 import { toBigInt, sha3, utf8ToBytes } from "web3-utils";
 import { Interface, keccak256 } from "ethers";
+import fs from "fs";
+import path from "path";
 
 const CHAIN_ID = 31337;
 const ZERO_HASH =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
+const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
 
 async function main() {
   const [platformAdmin, platformFeeCollector, tldOwner] =
@@ -23,7 +26,7 @@ async function main() {
   console.log("Toolkit deployed.");
 
   console.log("Registering TLD...");
-  const tldName = "deep";
+  const tldName = "jbw";
   const preRegiDetails = await registerTLD(
     toolkit.sann,
     toolkit.registry,
@@ -31,14 +34,49 @@ async function main() {
     tldName,
     tldOwner,
     platformAdmin,
-    toolkit.registrar,
-    toolkit.preRegistrationCreator
+    toolkit.registrar
+    // toolkit.preRegistrationCreator
   );
   console.log("TLD registered successfully.");
 
   console.log("Deployment and TLD registration completed successfully.");
   console.log("Toolkit:", toolkit);
   console.log("TLD Registration Details:", preRegiDetails);
+
+  // Save deployment details
+  const deployments = {
+    toolkit: {
+      registry: await toolkit.registry.getAddress(),
+      sann: await toolkit.sann.getAddress(),
+      registrar: await toolkit.registrar.getAddress(),
+      usdOracle: await toolkit.usdOracle.getAddress(),
+      platformConfig: await toolkit.platformConfig.getAddress(),
+      priceOracle: await toolkit.priceOracle.getAddress(),
+      prepaidPlatformFee: await toolkit.prepaidPlatformFee.getAddress(),
+      giftCardBase: await toolkit.giftCardBase.getAddress(),
+      giftCardVoucher: await toolkit.giftCardVoucher.getAddress(),
+      giftCardLedger: await toolkit.giftCardLedger.getAddress(),
+      giftCardController: await toolkit.giftCardController.getAddress(),
+      referralHub: await toolkit.referralHub.getAddress(),
+      baseCreator: await toolkit.baseCreator.getAddress(),
+      preRegistrationCreator: await toolkit.preRegistrationCreator.getAddress(),
+      tldFactory: await toolkit.tldFactory.getAddress(),
+      resolver: await toolkit.resolver.getAddress(),
+      reverseRegistrar: await toolkit.reverseRegistrar.getAddress(),
+    },
+    tld: {
+      identifier: preRegiDetails.identifier.toString(),
+      tldBase: await preRegiDetails.tldBase.getAddress(),
+      referralComissions: preRegiDetails.referralComissions,
+      publicRegistrationStartTime: preRegiDetails.publicRegistrationStartTime,
+    },
+  };
+
+  saveDeployments(deployments);
+}
+
+function saveDeployments(deployments: any) {
+  fs.writeFileSync(DEPLOYMENTS_FILE, JSON.stringify(deployments, null, 2));
 }
 
 async function deployToolkit(

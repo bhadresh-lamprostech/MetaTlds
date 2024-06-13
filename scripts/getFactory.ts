@@ -1,6 +1,8 @@
 // Import necessary libraries
 const { ethers } = require("ethers");
 
+import Deployments from "../scripts/deployments.json";
+
 import { toBigInt } from "web3-utils";
 
 // Define the contract ABI
@@ -14,7 +16,7 @@ const abi = [
 ];
 
 // Define the contract address (replace with your contract's deployed address)
-const contractAddress = "0x69F94e46cbC82Ab02781ac4FaFc3580d21f1a888";
+const contractAddress = Deployments.toolkit.sann;
 
 // Define the provider (replace with your provider)
 // const provider = new ethers.JsonRpcProvider(
@@ -37,9 +39,7 @@ async function getContractInfo() {
     console.log("Current TLD Controller:", currentTldController);
 
     // Get TLD info by identifier (replace identifier with the actual identifier)
-    const identifier = toBigInt(
-      "844854483209478065222019049185957727490244193226618995927553702223575749"
-    );
+    const identifier = toBigInt(Deployments.tld.identifier);
     const tldName = await contract.tld(identifier);
     const tldOwner = await contract.tldOwner(identifier);
     const tldBase = await contract.tldBase(identifier);
