@@ -1,0 +1,24 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TldAccessable",
+  "sourceName": "contracts/access/TldAccessable.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "sann",
+      "outputs": [
+        {
+          "internalType": "contract ISANN",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

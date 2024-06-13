@@ -1,0 +1,30 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "DummyNameWrapper",
+  "sourceName": "contracts/resolvers/mocks/DummyNameWrapper.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5060b48061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80636352211e14602d575b600080fd5b603d60383660046066565b503290565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b600060208284031215607757600080fd5b503591905056fea26469706673582212201b854017f063c608645d04f9293f9e89155f8b9e57f92c7afea78d3a3e4ea72e64736f6c63430008120033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80636352211e14602d575b600080fd5b603d60383660046066565b503290565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b600060208284031215607757600080fd5b503591905056fea26469706673582212201b854017f063c608645d04f9293f9e89155f8b9e57f92c7afea78d3a3e4ea72e64736f6c63430008120033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

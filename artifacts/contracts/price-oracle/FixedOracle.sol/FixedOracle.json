@@ -1,0 +1,53 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "FixedOracle",
+  "sourceName": "contracts/price-oracle/FixedOracle.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_value",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_decimals",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestAnswer",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60c060405234801561001057600080fd5b5060405161016738038061016783398101604081905261002f91610040565b60809190915260ff1660a052610076565b6000806040838503121561005357600080fd5b82519150602083015160ff8116811461006b57600080fd5b809150509250929050565b60805160a05160d06100976000396000603e015260006072015260d06000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063313ce56714603757806350d25bcd14606d575b600080fd5b60405160ff7f00000000000000000000000000000000000000000000000000000000000000001681526020015b60405180910390f35b6040517f00000000000000000000000000000000000000000000000000000000000000008152602001606456fea2646970667358221220e525f3421cd833ccc82ad01138da43be3f9d0c8f2abc82a9de9b890bf925b80f64736f6c63430008120033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063313ce56714603757806350d25bcd14606d575b600080fd5b60405160ff7f00000000000000000000000000000000000000000000000000000000000000001681526020015b60405180910390f35b6040517f00000000000000000000000000000000000000000000000000000000000000008152602001606456fea2646970667358221220e525f3421cd833ccc82ad01138da43be3f9d0c8f2abc82a9de9b890bf925b80f64736f6c63430008120033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

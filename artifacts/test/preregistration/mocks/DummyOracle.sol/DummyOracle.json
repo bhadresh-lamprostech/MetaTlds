@@ -1,0 +1,61 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "DummyOracle",
+  "sourceName": "test/preregistration/mocks/DummyOracle.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_value",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestAnswer",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_value",
+          "type": "int256"
+        }
+      ],
+      "name": "set",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161012a38038061012a83398101604081905261002f9161003e565b61003881600055565b50610057565b60006020828403121561005057600080fd5b5051919050565b60c5806100656000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c8063313ce56714604157806350d25bcd146055578063e5c19b2d146065575b600080fd5b604051600881526020015b60405180910390f35b600054604051908152602001604c565b607560703660046077565b600055565b005b600060208284031215608857600080fd5b503591905056fea264697066735822122036036b09b741e32ebbca2643d87871b6bb70250b5c9084ba8189fde725626fdf64736f6c63430008120033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c8063313ce56714604157806350d25bcd146055578063e5c19b2d146065575b600080fd5b604051600881526020015b60405180910390f35b600054604051908152602001604c565b607560703660046077565b600055565b005b600060208284031215608857600080fd5b503591905056fea264697066735822122036036b09b741e32ebbca2643d87871b6bb70250b5c9084ba8189fde725626fdf64736f6c63430008120033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

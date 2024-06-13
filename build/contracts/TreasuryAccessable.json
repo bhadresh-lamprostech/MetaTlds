@@ -1,0 +1,15 @@
+[
+  {
+    "inputs": [],
+    "name": "platformConfig",
+    "outputs": [
+      {
+        "internalType": "contract IPlatformConfig",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

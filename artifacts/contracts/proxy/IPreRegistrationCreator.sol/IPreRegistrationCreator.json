@@ -1,0 +1,211 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IPreRegistrationCreator",
+  "sourceName": "contracts/proxy/IPreRegistrationCreator.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        }
+      ],
+      "name": "AuctionCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        }
+      ],
+      "name": "PreRegistrationStateCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "sann",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tldOwner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "controller",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "platformConfig",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "prepaidPlatformFee",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "bool",
+              "name": "enableAuction",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "auctionStartTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "auctionInitialEndTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "auctionExtendDuration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "auctionRetentionDuration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "auctionMinRegistrationDuration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "enableFcfs",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "fcfsStartTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "fcfsEndTime",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct PreRegistrationUpdateConfig",
+          "name": "config",
+          "type": "tuple"
+        }
+      ],
+      "name": "create",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "sann",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tldOwner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "controller",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "platformConfig",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "preRegiState",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "prepaidPlatformFee",
+          "type": "address"
+        }
+      ],
+      "name": "createAuction",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,24 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TreasuryAccessable",
+  "sourceName": "contracts/access/TreasuryAccessable.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "platformConfig",
+      "outputs": [
+        {
+          "internalType": "contract IPlatformConfig",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

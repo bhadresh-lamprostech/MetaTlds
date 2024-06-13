@@ -1,0 +1,295 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ITldFactory",
+  "sourceName": "contracts/admin/ITldFactory.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "tld",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "controller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "base",
+          "type": "address"
+        }
+      ],
+      "name": "NewDomainService",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "stateAddr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "auctionAddr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        }
+      ],
+      "name": "PreRegistrationCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "defaultPriceOracle",
+          "type": "address"
+        }
+      ],
+      "name": "SetDefaultPriceOracle",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "tld",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "tldOwner",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "minDomainLength",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxDomainLength",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "minRegistrationDuration",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "minRenewDuration",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "mintCap",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct TldConfig",
+              "name": "config",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint8[]",
+              "name": "letters",
+              "type": "uint8[]"
+            },
+            {
+              "internalType": "uint64[]",
+              "name": "prices",
+              "type": "uint64[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "enableGiftCard",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "giftCardPrices",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "enableReferral",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "referralLevels",
+              "type": "uint256[]"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "minimumReferralCount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "referrerRate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "refereeRate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "isValid",
+                  "type": "bool"
+                }
+              ],
+              "internalType": "struct ReferralHub.Comission[]",
+              "name": "referralComissions",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "enablePreRegistration",
+              "type": "bool"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "enableAuction",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "auctionStartTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "auctionInitialEndTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "auctionExtendDuration",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "auctionRetentionDuration",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "auctionMinRegistrationDuration",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "enableFcfs",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "fcfsStartTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "fcfsEndTime",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct PreRegistrationUpdateConfig",
+              "name": "preRegiConfig",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint16[]",
+              "name": "preRegiDiscountRateBps",
+              "type": "uint16[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "publicRegistrationStartTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "publicRegistrationPaused",
+              "type": "bool"
+            },
+            {
+              "internalType": "string",
+              "name": "baseUri",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct TldInitData",
+          "name": "initData",
+          "type": "tuple"
+        }
+      ],
+      "name": "createDomainService",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "identifier",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
