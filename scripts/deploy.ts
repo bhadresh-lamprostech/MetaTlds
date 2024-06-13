@@ -2,7 +2,7 @@
 
 import { ethers } from "hardhat";
 import { time } from "@nomicfoundation/hardhat-network-helpers";
-import { toBigInt, sha3, toUtf8Bytes } from "web3-utils";
+import { toBigInt, sha3, utf8ToBytes } from "web3-utils";
 import { Interface, keccak256 } from "ethers";
 
 const CHAIN_ID = 31337;
@@ -23,7 +23,7 @@ async function main() {
   console.log("Toolkit deployed.");
 
   console.log("Registering TLD...");
-  const tldName = "example";
+  const tldName = "deep";
   const preRegiDetails = await registerTLD(
     toolkit.sann,
     toolkit.registry,
@@ -71,18 +71,18 @@ async function deployToolkit(
 
   let data = getInitializerData(
     sannImpl.interface,
-    [await registry.getAddress(), platformAdmin.address],
+    [registry.target, platformAdmin.address],
     "initialize"
   );
-
-  console.log("Deploying SANN proxy...", data);
+  console.log("Deploying SANN proxy...");
   const sannProxyFactory = await ethers.getContractFactory("ERC1967Proxy");
   const sannProxy = await sannProxyFactory.deploy(
-    await sannImpl.getAddress(),
-    data
+    platformAdmin.address,
+    keccak256(utf8ToBytes("SannProxy"))
   );
   await sannProxy.waitForDeployment();
   console.log(`SANN proxy deployed at: ${await sannProxy.getAddress()}`);
+  await sannProxy.connect(platformAdmin).initialize(sannImpl.target, data);
 
   const sann = await ethers.getContractAt("SANN", await sannProxy.getAddress());
 
@@ -164,10 +164,13 @@ async function deployToolkit(
   const controllerProxyFactory =
     await ethers.getContractFactory("ERC1967Proxy");
   const controllerProxy = await controllerProxyFactory.deploy(
-    await controllerImpl.getAddress(),
-    data
+    platformAdmin.address,
+    keccak256(utf8ToBytes("ControllerProxy"))
   );
   await controllerProxy.waitForDeployment();
+  await controllerProxy
+    .connect(platformAdmin)
+    .initialize(controllerImpl.target, data);
   console.log(
     `RegistrarController proxy deployed at: ${await controllerProxy.getAddress()}`
   );
@@ -369,23 +372,10 @@ async function registerTLD(
   tld: string,
   tldOwner: any,
   platformAdmin: any,
-  registrar: any,
-  preRegistrationCreator: any
+  registrar: any
 ) {
   const identifier = calIdentifier(CHAIN_ID, tldOwner.address, tld);
   const now = await time.latest();
-
-  const preRegiConfig = {
-    enableAuction: true,
-    auctionStartTime: now + 600,
-    auctionInitialEndTime: now + 1200,
-    auctionExtendDuration: 86400,
-    auctionRetentionDuration: 86400 * 7,
-    auctionMinRegistrationDuration: 86400 * 60,
-    enableFcfs: true,
-    fcfsStartTime: now + 86400 + 1200 + 600,
-    fcfsEndTime: now + 86400 + 1200 + 1200,
-  };
 
   const referralComissions = [
     {
@@ -402,8 +392,8 @@ async function registerTLD(
     },
   ];
 
-  const publicRegistrationStartTime = now + 86400 + 3000;
-  const preRegiDiscountRateBps = [0, 0, 0, 2000, 2000, 2000];
+  // Set the public registration start time to 2 minutes from now
+  const publicRegistrationStartTime = now + 120;
 
   const initData = {
     config: {
@@ -421,9 +411,19 @@ async function registerTLD(
     enableReferral: true,
     referralLevels: [1, 2],
     referralComissions: referralComissions,
-    enablePreRegistration: true,
-    preRegiConfig: preRegiConfig,
-    preRegiDiscountRateBps: preRegiDiscountRateBps,
+    enablePreRegistration: false, // Disable pre-registration
+    preRegiConfig: {
+      enableAuction: false,
+      auctionStartTime: 0,
+      auctionInitialEndTime: 0,
+      auctionExtendDuration: 0,
+      auctionRetentionDuration: 0,
+      auctionMinRegistrationDuration: 0,
+      enableFcfs: false,
+      fcfsStartTime: 0,
+      fcfsEndTime: 0,
+    }, // Empty pre-registration configuration
+    preRegiDiscountRateBps: [], // Empty pre-registration discount rates
     publicRegistrationStartTime: publicRegistrationStartTime,
     publicRegistrationPaused: false,
     baseUri: "https://space.id/metadata",
@@ -434,39 +434,16 @@ async function registerTLD(
     .createDomainService(tld, tldOwner.address, initData);
   const receipt = await tx.wait();
 
-  const log1 = receipt.logs.find(
-    (log) =>
-      preRegistrationCreator.interface.parseLog(log)?.name ===
-      "PreRegistrationStateCreated"
-  );
-  const event1 = preRegistrationCreator.interface.parseLog(log1);
-  const preRegistrationStateAddr = event1.args[0];
-
-  const log2 = receipt.logs.find(
-    (log) =>
-      preRegistrationCreator.interface.parseLog(log)?.name === "AuctionCreated"
-  );
-  const event2 = preRegistrationCreator.interface.parseLog(log2);
-  const auctionAddr = event2.args[0];
-
-  const preRegistrationState = await ethers.getContractAt(
-    "PreRegistrationState",
-    preRegistrationStateAddr
-  );
-  const auction = await ethers.getContractAt("Auction", auctionAddr);
-
   const tldBaseAddr = await sann.tldBase(identifier);
   const tldBase = await ethers.getContractAt("Base", tldBaseAddr);
+
+  console.log(identifier);
 
   return {
     identifier,
     tldBase,
-    preRegiConfig,
-    publicRegistrationStartTime,
-    preRegiDiscountRateBps,
-    preRegistrationState,
     referralComissions,
-    auction,
+    publicRegistrationStartTime,
   };
 }
 
