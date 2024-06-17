@@ -26,8 +26,8 @@ contract SidRegistry is ISidRegistry {
     /**
      * @dev Constructs a new registry.
      */
-    constructor(address owner) {
-        records[0x0].owner = owner;
+    constructor(address _owner) {
+        records[0x0].owner = _owner;
     }
 
     /**

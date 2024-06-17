@@ -1,7 +1,7 @@
 // Import necessary libraries
 const { ethers } = require("ethers");
 
-import Deployments from "../scripts/deployments.json";
+import Deployments from "./deployments.json";
 
 import { toBigInt } from "web3-utils";
 
