@@ -3,14 +3,21 @@
 import { ethers } from "hardhat";
 import { time } from "@nomicfoundation/hardhat-network-helpers";
 import { toBigInt, sha3, utf8ToBytes } from "web3-utils";
-import { Interface, keccak256 } from "ethers";
+import { Interface, Wallet, keccak256 } from "ethers";
 import fs from "fs";
 import path from "path";
+import Deployments from "../scripts/deployments.json";
 
 const CHAIN_ID = 31337;
 const ZERO_HASH =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
+const privateKey =
+  "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a";
+const providerUrl = "http://127.0.0.1:8545/";
+
+const provider = new ethers.JsonRpcProvider(providerUrl);
+const wallet = new ethers.Wallet(privateKey, provider);
 
 async function main() {
   const [platformAdmin, platformFeeCollector, tldOwner] =
@@ -31,6 +38,7 @@ async function main() {
     toolkit.sann,
     toolkit.registry,
     toolkit.tldFactory,
+    toolkit.ethStaking,
     tldName,
     tldOwner,
     platformAdmin,
@@ -38,7 +46,6 @@ async function main() {
     // toolkit.preRegistrationCreator
   );
   console.log("TLD registered successfully.");
-
   console.log("Deployment and TLD registration completed successfully.");
   console.log("Toolkit:", toolkit);
   console.log("TLD Registration Details:", preRegiDetails);
@@ -63,6 +70,7 @@ async function main() {
       tldFactory: await toolkit.tldFactory.getAddress(),
       resolver: await toolkit.resolver.getAddress(),
       reverseRegistrar: await toolkit.reverseRegistrar.getAddress(),
+      ethStaking: await toolkit.ethStaking.getAddress()
     },
     tld: {
       identifier: preRegiDetails.identifier.toString(),
@@ -299,6 +307,17 @@ async function deployToolkit(
     `PreRegistrationCreator deployed at: ${await preRegistrationCreator.getAddress()}`
   );
 
+  console.log("Deploying ETHStaking...");
+  const ethStakingFactory = await ethers.getContractFactory(
+    "EthStaking"
+  );
+  const ethStaking = await ethStakingFactory.deploy();
+  await ethStaking.waitForDeployment();
+  console.log(
+    `ETHStaking deployed at: ${await ethStaking.getAddress()}`
+  );
+
+
   console.log("Deploying PublicResolver...");
   const resolverFactory = await ethers.getContractFactory("PublicResolver");
   const resolver = await resolverFactory.deploy(platformAdmin.address);
@@ -383,6 +402,7 @@ async function deployToolkit(
     tldFactory,
     resolver,
     reverseRegistrar,
+    ethStaking,
   };
 }
 
@@ -407,14 +427,33 @@ async function registerTLD(
   sann: any,
   registry: any,
   tldFactory: any,
+  ethStaking: any,
   tld: string,
   tldOwner: any,
   platformAdmin: any,
-  registrar: any
+  registrar: any,
 ) {
+
   const identifier = calIdentifier(CHAIN_ID, tldOwner.address, tld);
   const now = await time.latest();
 
+  const stakeTx = await ethStaking.connect(wallet).stake(identifier, {
+    value: ethers.parseEther("1"),
+    gasLimit: 300000,
+  });
+
+  await stakeTx.wait();
+  await stakeTx.wait();
+
+  // Verify staking details
+  const stakeDetails = await ethStaking.getStakeDetails();
+  const stakedIdentifier = stakeDetails[1];
+  const stakedAmount = stakeDetails[2];
+
+  console.log("Staked Amount (Wei):", stakedAmount.toString());
+  console.log("Staked Identifier:", stakedIdentifier.toString());
+
+ 
   const referralComissions = [
     {
       minimumReferralCount: 1,
@@ -467,23 +506,29 @@ async function registerTLD(
     baseUri: "https://space.id/metadata",
   };
 
-  const tx = await tldFactory
-    .connect(platformAdmin)
-    .createDomainService(tld, tldOwner.address, initData);
-  const receipt = await tx.wait();
+  if (stakedAmount >= ethers.parseEther("1") && stakedIdentifier == identifier) {
+    console.log("Staking successful and verified.");
+    const tx = await tldFactory
+      .connect(wallet.address)
+      .createDomainService(tld, tldOwner.address, initData);
+    const receipt = await tx.wait();
+  
+    const tldBaseAddr = await sann.tldBase(identifier);
+    var tldBase = await ethers.getContractAt("Base", tldBaseAddr);
+  
+    console.log(identifier);
+    return {
+      identifier,
+      tldBase,
+      referralComissions,
+      publicRegistrationStartTime,
+    };
+  } else {
+    console.log("Staking verification failed.");
+  }
 
-  const tldBaseAddr = await sann.tldBase(identifier);
-  const tldBase = await ethers.getContractAt("Base", tldBaseAddr);
-
-  console.log(identifier);
-
-  return {
-    identifier,
-    tldBase,
-    referralComissions,
-    publicRegistrationStartTime,
-  };
 }
+
 
 function calIdentifier(chainId: number, owner: string, tld: string): bigint {
   const hash = ethers.solidityPackedKeccak256(

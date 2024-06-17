@@ -18,9 +18,10 @@ import {IPlatformConfig} from "./IPlatformConfig.sol";
 import {IPreRegistrationCreator} from "../proxy/IPreRegistrationCreator.sol";
 import {PrepaidPlatformFee} from "../admin/PrepaidPlatformFee.sol";
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {EthStaking} from "../staking/EthStaking.sol";
 
 // TldFactory is a controller to create a new TLD.
-contract TldFactory is ITldFactory, TldAccessable, Initializable {
+contract TldFactory is ITldFactory, TldAccessable, Initializable, EthStaking {
     /// Platform config contract address.
     address public platformConfig;
 
@@ -84,7 +85,7 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
         string calldata tld,
         address tldOwner,
         TldInitData calldata initData
-    ) external override onlyPlatformAdmin returns (uint256 identifier) {
+    ) hasStaked external override  returns (uint256 identifier) {
         // generate unique identifier for every new tld
         identifier = sann.tldIdentifier(tld, tldOwner);
 
