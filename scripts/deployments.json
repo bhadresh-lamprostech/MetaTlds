@@ -18,24 +18,5 @@
     "resolver": "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
     "reverseRegistrar": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
     "ethStaking": "0x4A679253410272dd5232B3Ff7cF5dbB88f295319"
-  },
-  "tld": {
-    "identifier": "844858081049864971509160763091871182726319676366353236643527577540355621",
-    "tldBase": "0x9ff32A54532E0537Db6D004A7Bd2Ee4ebEEc9076",
-    "referralComissions": [
-      {
-        "minimumReferralCount": 1,
-        "referrerRate": 10,
-        "refereeRate": 5,
-        "isValid": true
-      },
-      {
-        "minimumReferralCount": 3,
-        "referrerRate": 15,
-        "refereeRate": 10,
-        "isValid": true
-      }
-    ],
-    "publicRegistrationStartTime": 1718601294
   }
 }
