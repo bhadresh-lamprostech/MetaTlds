@@ -18,19 +18,24 @@ const wallet = new ethers.Wallet(privateKey, provider);
 const domainToRegister = "jayambe";
 const registrationDuration = 31556952; // 1 year in seconds
 
+const sannAbi = ["function tld(uint256) view returns (string)"];
+
 async function registerDomain() {
   const contractABI = require("../artifacts/contracts/controller/RegistrarController.sol/RegistrarController.json");
+
+  const sannAddress = Deployments.toolkit.sann;
+
+  const sannContract = new ethers.Contract(sannAddress, sannAbi, provider);
   const contract = new ethers.Contract(
     contractAddress,
     contractABI.abi,
     wallet
   );
-
+  const tldName = await sannContract.tld(identifier);
   try {
     console.log(
-      "Calling rentPrice with:",
-      identifier,
-      domainToRegister,
+      "Rent Price For:",
+      domainToRegister + "." + tldName,
       registrationDuration
     );
     const estimatedPriceArray = await contract.rentPrice(
@@ -50,10 +55,18 @@ async function registerDomain() {
       toBigInt(identifier),
       domainToRegister
     );
-    console.log("Domain availability:", available);
+
+    available === true
+      ? console.log(`${domainToRegister}.${tldName} is available`, available)
+      : console.log(
+          `${domainToRegister}.${tldName} is Not available`,
+          available
+        );
 
     if (available) {
-      console.log("Submitting registration transaction");
+      console.log(
+        `Submitting registration transaction for ${domainToRegister}.${tldName}`
+      );
       const registrationTx = await contract.bulkRegister(
         toBigInt(identifier),
         [domainToRegister],
@@ -70,11 +83,13 @@ async function registerDomain() {
 
       const receipt = await registrationTx.wait();
       console.log(
-        "Registration successful. Transaction hash:",
-        receipt.transactionHash
+        `Registration successful. for ${domainToRegister}.${tldName} Transaction hash:`,
+        receipt.hash
       );
     } else {
-      console.log("Domain is not available for registration.");
+      console.log(
+        `${domainToRegister}.${tldName} is not available for registration.`
+      );
     }
   } catch (error) {
     console.error("Error registering domain:", error);
