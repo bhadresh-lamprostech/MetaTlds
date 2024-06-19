@@ -15,7 +15,7 @@ dotenv.config({ debug: false });
 const {
   NODEREAL_APP_ID_STG,
   NODEREAL_APP_ID_PRD,
-  PRIVATE_KEY,
+  PRIVATE_KEYS,
   BSCSCAN_API_KEY,
   ETHERSCAN_API_KEY,
   ARBSCAN_API_KEY,
@@ -29,59 +29,64 @@ const pvtKey = [
 
 const config: HardhatUserConfig = {
   networks: {
-    eth_sepolia: {
-      url: `https://eth-sepolia.public.blastapi.io`,
-      chainId: 11155111,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-    },
-    eth_mainnet: {
-      url: `https://rpc.ankr.com/eth`,
-      chainId: 1,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-    },
-    arb_mainnet: {
-      url: `https://arb1.arbitrum.io/rpc`,
-      chainId: 42161,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-      gas: 12450000000,
-    },
-    arb_testnet: {
-      url: `https://goerli-rollup.arbitrum.io/rpc`,
-      chainId: 421613,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-      gas: 12450000000,
-    },
-    bsc_testnet: {
-      url: ``,
-      chainId: 97,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-      gas: 12450000,
-      gasPrice: 5000000000,
-    },
-    bsc_mainnet: {
-      url: `https://bsc-dataseed.binance.org/`,
-      chainId: 56,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-      gas: 12450000,
-      gasPrice: 5000000000,
-    },
-    zeta_testnet: {
-      url: `https://zetachain-athens-evm.blockpi.network/v1/rpc/public`,
-      chainId: 7001,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-      gas: 12450000,
-    },
-    gnosis: {
-      url: "",
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-    },
-    chiado: {
-      // gnosis testnet
-      url: "",
-      gasPrice: 5000000000,
-      gas: 12450000,
-      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
-    },
+    mode_testnet: {
+      url: `https://sepolia.mode.network`,
+      chainId: 919,
+      accounts: PRIVATE_KEYS ? PRIVATE_KEYS.split(',') : [],
+    },    
+    // eth_sepolia: {
+    //   url: `https://eth-sepolia.public.blastapi.io`,
+    //   chainId: 11155111,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    // },
+    // eth_mainnet: {
+    //   url: `https://rpc.ankr.com/eth`,
+    //   chainId: 1,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    // },
+    // arb_mainnet: {
+    //   url: `https://arb1.arbitrum.io/rpc`,
+    //   chainId: 42161,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    //   gas: 12450000000,
+    // },
+    // arb_testnet: {
+    //   url: `https://goerli-rollup.arbitrum.io/rpc`,
+    //   chainId: 421613,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    //   gas: 12450000000,
+    // },
+    // bsc_testnet: {
+    //   url: ``,
+    //   chainId: 97,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    //   gas: 12450000,
+    //   gasPrice: 5000000000,
+    // },
+    // bsc_mainnet: {
+    //   url: `https://bsc-dataseed.binance.org/`,
+    //   chainId: 56,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    //   gas: 12450000,
+    //   gasPrice: 5000000000,
+    // },
+    // zeta_testnet: {
+    //   url: `https://zetachain-athens-evm.blockpi.network/v1/rpc/public`,
+    //   chainId: 7001,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    //   gas: 12450000,
+    // },
+    // gnosis: {
+    //   url: "",
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    // },
+    // chiado: {
+    //   // gnosis testnet
+    //   url: "",
+    //   gasPrice: 5000000000,
+    //   gas: 12450000,
+    //   accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    // },
 
     localhost: {
       // gnosis testnet

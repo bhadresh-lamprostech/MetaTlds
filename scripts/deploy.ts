@@ -13,9 +13,7 @@ const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
 
 
 async function main() {
-  const [platformAdmin, platformFeeCollector, tldOwner] =
-    await ethers.getSigners();
-
+  const [platformAdmin, platformFeeCollector] = await ethers.getSigners();
   console.log("Deploying toolkit...");
   const toolkit = await deployToolkit(
     platformAdmin,
@@ -45,7 +43,7 @@ async function main() {
       tldFactory: await toolkit.tldFactory.getAddress(),
       resolver: await toolkit.resolver.getAddress(),
       reverseRegistrar: await toolkit.reverseRegistrar.getAddress(),
-      ethStaking: await toolkit.ethStaking.getAddress()
+      // ethStaking: await toolkit.ethStaking.getAddress()
     },
     // tld: {
     //   identifier: preRegiDetails.identifier.toString(),
@@ -281,15 +279,15 @@ async function deployToolkit(
     `PreRegistrationCreator deployed at: ${await preRegistrationCreator.getAddress()}`
   );
 
-  console.log("Deploying ETHStaking...");
-  const ethStakingFactory = await ethers.getContractFactory(
-    "EthStaking"
-  );
-  const ethStaking = await ethStakingFactory.deploy();
-  await ethStaking.waitForDeployment();
-  console.log(
-    `ETHStaking deployed at: ${await ethStaking.getAddress()}`
-  );
+  // console.log("Deploying ETHStaking...");
+  // const ethStakingFactory = await ethers.getContractFactory(
+  //   "EthStaking"
+  // );
+  // const ethStaking = await ethStakingFactory.deploy();
+  // await ethStaking.waitForDeployment();
+  // console.log(
+  //   `ETHStaking deployed at: ${await ethStaking.getAddress()}`
+  // );
 
 
   console.log("Deploying PublicResolver...");
@@ -327,37 +325,52 @@ async function deployToolkit(
     );
   console.log(`TldFactory deployed at: ${await tldFactory.getAddress()}`);
 
+  console.log("0");
   await sann
-    .connect(platformAdmin)
-    .setTldFactory(await tldFactory.getAddress());
+  .connect(platformAdmin)
+  .setTldFactory(await tldFactory.getAddress());
+  console.log("1");
   await sann
-    .connect(platformAdmin)
-    .setTldController(await registrar.getAddress());
-
+  .connect(platformAdmin)
+  .setTldController(await registrar.getAddress());
+  
+  console.log("2");
   await registry.setOwner(ZERO_HASH, platformAdmin.address);
+  console.log("3");
   await registry
-    .connect(platformAdmin)
-    .setSubnodeOwner(ZERO_HASH, sha3("reverse"), platformAdmin.address);
-  await registry
-    .connect(platformAdmin)
-    .setSubnodeOwner(
-      ethers.namehash("reverse"),
-      sha3("addr"),
-      await reverseRegistrar.getAddress()
-    );
-  await reverseRegistrar
-    .connect(platformAdmin)
-    .setDefaultResolver(await resolver.getAddress());
-  await registry
-    .connect(platformAdmin)
-    .setOwner(ethers.namehash("reverse"), await sann.getAddress());
-  await registry
-    .connect(platformAdmin)
-    .setOwner(ZERO_HASH, await sann.getAddress());
-  await reverseRegistrar
-    .connect(platformAdmin)
-    .setController(await registrar.getAddress(), true);
+  .connect(platformAdmin)
+  .setSubnodeOwner(ZERO_HASH, sha3("reverse"), platformAdmin.address);
+  console.log("4");
+  console.log("platformAdmin:", platformAdmin.address);
+  console.log("reverse:", ethers.namehash("reverse"));
+  console.log("sha3:", sha3("addr"));
+  console.log("reverseregistrar:", await reverseRegistrar.getAddress());
 
+  await registry
+  .connect(platformAdmin)
+  .setSubnodeOwner(
+    ethers.namehash("reverse"),
+    sha3("addr"),
+    await reverseRegistrar.getAddress()
+  );
+  console.log("5");
+  await reverseRegistrar
+  .connect(platformAdmin)
+  .setDefaultResolver(await resolver.getAddress());
+  console.log("6");
+  await registry
+  .connect(platformAdmin)
+  .setOwner(ethers.namehash("reverse"), await sann.getAddress());
+  console.log("7");
+  await registry
+  .connect(platformAdmin)
+  .setOwner(ZERO_HASH, await sann.getAddress());
+  console.log("8");
+  await reverseRegistrar
+  .connect(platformAdmin)
+  .setController(await registrar.getAddress(), true);
+  console.log("9");
+  
   return {
     registry,
     sann,
@@ -376,7 +389,7 @@ async function deployToolkit(
     tldFactory,
     resolver,
     reverseRegistrar,
-    ethStaking,
+    // ethStaking,
   };
 }
 

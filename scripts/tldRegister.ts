@@ -14,8 +14,7 @@ const wallet = new ethers.Wallet(privateKey, provider);
 async function main() {
 
     const [tldOwner] = await ethers.getSigners();
-
-    const tldName = "jbw";
+    const tldName = "eth";
     const identifier = calIdentifier(31337, wallet.address, tldName);
 
     // STAKE ETH
@@ -53,13 +52,10 @@ async function stakeETH(
     tldName: string,
 ){
     try{
-        const contractABI = require("../artifacts/contracts/staking/EthStaking.sol/EthStaking.json").abi;
-        const contractAddr = Deployments.toolkit.ethStaking;
-        const ethStaking = new ethers.Contract(contractAddr, contractABI, tldOwner);
-
-        
-        
-        const stakeTx = await ethStaking.stake(identifier, tldName, {
+        const contractABI = require("../artifacts/contracts/admin/TldFactory.sol/TldFactory.json").abi;
+        const contractAddr = Deployments.toolkit.tldFactory;
+        const tldFactory = new ethers.Contract(contractAddr, contractABI, tldOwner);
+        const stakeTx = await tldFactory.stake(identifier, tldName, {
         value: ethers.parseEther("1"),
         gasLimit: 300000,
         });
@@ -67,7 +63,7 @@ async function stakeETH(
         // console.log("Staking Tx Receipt", receipt);
     
         // Verify staking details
-        const stakeDetails = await ethStaking.getStakeDetails();
+        const stakeDetails = await tldFactory.getStakeDetails();
         const stakedIdentifier = stakeDetails[1];
         const stakedAmount = stakeDetails[2];
         expect(stakedIdentifier).to.equal(identifier);
@@ -166,7 +162,7 @@ async function registerTLD(
     referralComissions,
     publicRegistrationStartTime,
     };
-  }
+}
 
 main().catch((error) => {
   console.error(error);
