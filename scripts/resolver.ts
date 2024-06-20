@@ -2,10 +2,11 @@ const { ethers } = require("ethers");
 import Deployments from "../scripts/deployments.json";
 const reverseRegistrarABI = require("../artifacts/contracts/registrar/ReverseRegistrar.sol/ReverseRegistrar.json"); // Replace with the path to your ReverseRegistrar ABI file
 const resolverABI = require("../artifacts/contracts/resolvers/Resolver.sol/Resolver.json"); // Replace with the path to your Resolver ABI file
+const dotenv = require('dotenv').config();
 
 async function resolveAddressToENSName(address) {
   // Replace with your Ethereum node provider URL
-  const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545/");
+  const provider = new ethers.JsonRpcProvider(process.env.AMOY_API_KEY);
 
   console.log(address);
 
@@ -41,7 +42,7 @@ async function resolveAddressToENSName(address) {
 }
 
 // Usage example
-const address = "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc"; // Replace with the Ethereum address you want to resolve
+const address = "0x5428DAc9103799F18eb6562eD85e48E0790D4643"; // Replace with the Ethereum address you want to resolve
 
 resolveAddressToENSName(address)
   .then((ensName) => console.log(`ENS name for ${address}: ${ensName}`))

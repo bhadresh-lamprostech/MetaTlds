@@ -671,5 +671,23 @@
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "tld",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "identifier",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateTldList",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]

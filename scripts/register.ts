@@ -1,21 +1,22 @@
 import Deployments from "../scripts/deployments.json";
 const { ethers } = require("ethers");
 const web3Utils = require("web3-utils");
+const dotenv = require('dotenv').config();
+
 
 const { toBigInt } = web3Utils;
 
 //registrar controllar address
 const contractAddress = Deployments.toolkit.registrar;
 const resolverAddress = Deployments.toolkit.resolver;
-const privateKey =
-  "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a";
+const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
 const identifier = Deployments.tld.identifier;
-const providerUrl = "http://127.0.0.1:8545/";
+const providerUrl = process.env.AMOY_API_KEY;
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
 
-const domainToRegister = "jayambe";
+const domainToRegister = "hello";
 const registrationDuration = 31556952; // 1 year in seconds
 
 const sannAbi = ["function tld(uint256) view returns (string)"];

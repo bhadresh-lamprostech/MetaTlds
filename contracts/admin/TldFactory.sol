@@ -19,6 +19,7 @@ import {IPreRegistrationCreator} from "../proxy/IPreRegistrationCreator.sol";
 import {PrepaidPlatformFee} from "../admin/PrepaidPlatformFee.sol";
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
+
 // TldFactory is a controller to create a new TLD.
 contract TldFactory is ITldFactory, TldAccessable, Initializable {
     /// Platform config contract address.
@@ -337,14 +338,14 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
      // Function to stake ETH
     function stake(uint256 identifier, string calldata tld) external payable {
         require(msg.value >= MINIMUM_STAKE, "Insufficient staking amount");
-        require(!isTldRegistered(tld), "TLD you're trying to register already exists");
+        require(!checkAvailability(tld), "TLD you're trying to register already exists");
         identifiers[msg.sender] = identifier;
         stakes[msg.sender] += msg.value;
         emit Staked(msg.sender, msg.value);
     }
 
     // Function to check if TLD is already registered
-    function isTldRegistered(string calldata tld) internal view returns (bool) {
+    function checkAvailability(string calldata tld) internal view returns (bool) {
         for (uint i = 0; i < tldList.length; i++) {
             if (keccak256(abi.encodePacked(tldList[i])) == keccak256(abi.encodePacked(tld))) {
                 return true;
@@ -372,7 +373,10 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     function setStakeLimit(uint256 amount) onlyPlatformAdmin external {
         MINIMUM_STAKE = amount;
     }
-
+    function updateTldList(string calldata tld, uint256 identifier) hasStaked external {
+        require(identifier == identifiers[msg.sender], "You don't Own this TLD :( ");
+        tldList.push(tld);
+    }
     // Modifier to check if the user has staked the required amount
     modifier hasStaked() {
         require(stakes[msg.sender] >= MINIMUM_STAKE, "You must stake the required amount of ETH");

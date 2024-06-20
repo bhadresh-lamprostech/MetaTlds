@@ -2,20 +2,39 @@ import { contract, ethers } from "hardhat";
 import { time } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { calIdentifier } from "./utils";
+import fs from "fs";
+import path from "path";
+// import { getCurrentUnixTime } from "./utils"; // Assuming you have a function to get current time
 import Deployments from "../scripts/deployments.json";
 
-const privateKey =
-  "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a";
-const providerUrl = "http://127.0.0.1:8545/";
+const dotenv = require('dotenv').config();
+
+const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
+
+const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
+const providerUrl = process.env.AMOY_API_KEY;
+
+
+// for localhost
+// const privateKey =
+//   "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+// const providerUrl = "https://127.0.0.1:8545";
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
 
+function saveDeployments(newDeployment: any) {
+  const deployments = fs.existsSync(DEPLOYMENTS_FILE) ? JSON.parse(fs.readFileSync(DEPLOYMENTS_FILE, "utf8")) : {};
+  fs.writeFileSync(DEPLOYMENTS_FILE, JSON.stringify({ ...deployments, ...newDeployment }, null, 2));
+}
+
 async function main() {
 
-    const [tldOwner] = await ethers.getSigners();
-    const tldName = "eth";
-    const identifier = calIdentifier(31337, wallet.address, tldName);
+    const [,tldOwner] = await ethers.getSigners();
+    console.log(tldOwner.address);
+    console.log(wallet.address);
+    const tldName = "qpe";
+    const identifier = calIdentifier(80002, wallet.address, tldName);
 
     // STAKE ETH
     console.log("Staking ETH...");
@@ -40,6 +59,19 @@ async function main() {
         console.log("Deployment and TLD registration completed successfully.");
         // console.log("Toolkit:", toolkit);
         console.log("TLD Registration Details:", preRegiDetails);
+
+        const tldDetails = {
+          tld: {
+            identifier: preRegiDetails.identifier.toString(),
+            tldBase: await preRegiDetails.tldBase.getAddress(),
+            referralComissions: preRegiDetails.referralComissions,
+            publicRegistrationStartTime: preRegiDetails.publicRegistrationStartTime,
+          },
+        }
+        
+
+        saveDeployments(tldDetails);
+
     }
     else{
         console.log("Please stake the require amount of ETH for Registering TLD...");
@@ -54,48 +86,49 @@ async function stakeETH(
     try{
         const contractABI = require("../artifacts/contracts/admin/TldFactory.sol/TldFactory.json").abi;
         const contractAddr = Deployments.toolkit.tldFactory;
-        const tldFactory = new ethers.Contract(contractAddr, contractABI, tldOwner);
+        var tldFactory = new ethers.Contract(contractAddr, contractABI, tldOwner);
+
+        // const setStakeLimit = await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
+        // await setStakeLimit.wait();
         const stakeTx = await tldFactory.stake(identifier, tldName, {
-        value: ethers.parseEther("1"),
+        value: ethers.parseEther("0.001"),
         gasLimit: 300000,
         });
         const receipt = await stakeTx.wait();
         // console.log("Staking Tx Receipt", receipt);
-    
-        // Verify staking details
-        const stakeDetails = await tldFactory.getStakeDetails();
-        const stakedIdentifier = stakeDetails[1];
-        const stakedAmount = stakeDetails[2];
-        expect(stakedIdentifier).to.equal(identifier);
-    
-        console.log("Staked Amount (Wei):", stakedAmount.toString());
-        console.log("Staked Identifier:", stakedIdentifier.toString());
-        return true;
+      
+      // Verify staking details
+      const stakeDetails = await tldFactory.getStakeDetails();
+      const stakedIdentifier = stakeDetails[1];
+      const stakedAmount = stakeDetails[2];
+      expect(stakedIdentifier).to.equal(identifier);
+  
+      console.log("Staked Amount (Wei):", stakedAmount.toString());
+      console.log("Staked Identifier:", stakedIdentifier.toString());
+      return true;
     }
-    catch (error){
-        console.log("Error staking ETH:", error);
-        return false;
+    catch(error) {
+      console.log("error staking eth:", error);
     }
 }
+
 
 async function registerTLD(
     tldOwner: any,
     identifier: any,
     tldName: string,
 ) { 
-
-    // tldFactory contract Instance
     const contractABI = require("../artifacts/contracts/admin/TldFactory.sol/TldFactory.json").abi;
     const contractAddr = Deployments.toolkit.tldFactory;
     const tldFactory = new ethers.Contract(contractAddr, contractABI, tldOwner);
 
-    // SANN contract instance
     const sannContractABI = require("../artifacts/contracts/admin/SANN.sol/SANN.json").abi;
     const sannContractAddr = Deployments.toolkit.sann;
     const sann = new ethers.Contract(sannContractAddr, sannContractABI, tldOwner);
 
-    const now = await time.latest();
-   
+    // Get the current time using an alternative method
+    const now = await getCurrentUnixTime();
+
     const referralComissions = [
       {
         minimumReferralCount: 1,
@@ -110,7 +143,7 @@ async function registerTLD(
         isValid: true,
       },
     ];
-    // Set the public registration start time to 2 minutes from now
+
     const publicRegistrationStartTime = now + 120;
     const initData = {
       config: {
@@ -128,7 +161,7 @@ async function registerTLD(
       enableReferral: true,
       referralLevels: [1, 2],
       referralComissions: referralComissions,
-      enablePreRegistration: false, // Disable pre-registration
+      enablePreRegistration: false,
       preRegiConfig: {
         enableAuction: false,
         auctionStartTime: 0,
@@ -139,30 +172,45 @@ async function registerTLD(
         enableFcfs: false,
         fcfsStartTime: 0,
         fcfsEndTime: 0,
-      }, // Empty pre-registration configuration
-      preRegiDiscountRateBps: [], // Empty pre-registration discount rates
+      },
+      preRegiDiscountRateBps: [],
       publicRegistrationStartTime: publicRegistrationStartTime,
       publicRegistrationPaused: false,
       baseUri: "https://space.id/metadata",
     };
 
+    // try {
+    //   const tx = await tldFactory.createDomainService(tldName, tldOwner.address, initData);
+    //   var receipt = await tx.wait();
+    // } catch (error) {
+    //   console.error("Error creating domain service:", error);
+    // }
 
     const tx = await tldFactory.createDomainService(tldName, tldOwner.address, initData);
-    const receipt = await tx.wait();
+    var receipt = await tx.wait();
 
     console.log("TLD created...");
 
     const tldBaseAddr = await sann.tldBase(identifier);
-    var tldBase = await ethers.getContractAt("Base", tldBaseAddr);
+    const tldBase = await ethers.getContractAt("Base", tldBaseAddr);
+
+    await tldFactory.updateTldList(tldName, identifier);
 
     console.log("Tx Receipt: ", receipt);
     return {
-    identifier,
-    tldBase,
-    referralComissions,
-    publicRegistrationStartTime,
+      identifier,
+      tldBase,
+      referralComissions,
+      publicRegistrationStartTime,
     };
 }
+
+// Utility function to get the current Unix time
+async function getCurrentUnixTime(): Promise<number> {
+  const block = await ethers.provider.getBlock('latest');
+  return block.timestamp;
+}
+
 
 main().catch((error) => {
   console.error(error);

@@ -20,6 +20,7 @@ const {
   ETHERSCAN_API_KEY,
   ARBSCAN_API_KEY,
   GNOSISSCAN_API_KEY,
+  AMOY_API_KEY
 } = process.env;
 const pvtKey = [
   "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
@@ -29,11 +30,18 @@ const pvtKey = [
 
 const config: HardhatUserConfig = {
   networks: {
+    
+    amoy: {
+      url: AMOY_API_KEY,
+      chainId: 80002,
+      accounts: PRIVATE_KEYS ? PRIVATE_KEYS.split(',') : [],
+    },    
+
     mode_testnet: {
       url: `https://sepolia.mode.network`,
       chainId: 919,
       accounts: PRIVATE_KEYS ? PRIVATE_KEYS.split(',') : [],
-    },    
+    },
     // eth_sepolia: {
     //   url: `https://eth-sepolia.public.blastapi.io`,
     //   chainId: 11155111,
@@ -155,7 +163,7 @@ const config: HardhatUserConfig = {
         settings: {
           optimizer: {
             enabled: true,
-            runs: 1000,
+            runs: 200,
           },
           outputSelection: {
             "*": {

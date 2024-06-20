@@ -6,7 +6,8 @@ import { getInitializerData } from "./utils";
 import fs from "fs";
 import path from "path";
 
-const CHAIN_ID = 31337;
+const CHAIN_ID = 80002;
+// const CHAIN_ID = 13337; // Localhost ChainId
 const ZERO_HASH =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
@@ -22,7 +23,6 @@ async function main() {
     1000
   ); // Example fee rate and minPlatformFee
   console.log("Toolkit deployed.");
-
   // Save deployment details
   const deployments = {
     toolkit: {
@@ -43,14 +43,7 @@ async function main() {
       tldFactory: await toolkit.tldFactory.getAddress(),
       resolver: await toolkit.resolver.getAddress(),
       reverseRegistrar: await toolkit.reverseRegistrar.getAddress(),
-      // ethStaking: await toolkit.ethStaking.getAddress()
     },
-    // tld: {
-    //   identifier: preRegiDetails.identifier.toString(),
-    //   tldBase: await preRegiDetails.tldBase.getAddress(),
-    //   referralComissions: preRegiDetails.referralComissions,
-    //   publicRegistrationStartTime: preRegiDetails.publicRegistrationStartTime,
-    // },
   };
 
   saveDeployments(deployments);
@@ -345,14 +338,20 @@ async function deployToolkit(
   console.log("reverse:", ethers.namehash("reverse"));
   console.log("sha3:", sha3("addr"));
   console.log("reverseregistrar:", await reverseRegistrar.getAddress());
+  
+  try {
+    await registry
+    .connect(platformAdmin)
+    .setSubnodeOwner(
+      ethers.namehash("reverse"),
+      sha3("addr"),
+      await reverseRegistrar.getAddress()
+    );
+  }
+  catch (error){
+    console.log("error setting Subnodeowner:", error);
+  }
 
-  await registry
-  .connect(platformAdmin)
-  .setSubnodeOwner(
-    ethers.namehash("reverse"),
-    sha3("addr"),
-    await reverseRegistrar.getAddress()
-  );
   console.log("5");
   await reverseRegistrar
   .connect(platformAdmin)

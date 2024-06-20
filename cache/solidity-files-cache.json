@@ -10,7 +10,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -55,7 +55,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -97,7 +97,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -139,7 +139,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -183,7 +183,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -236,7 +236,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -278,7 +278,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -320,7 +320,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -362,7 +362,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -404,7 +404,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -446,7 +446,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -495,7 +495,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -537,7 +537,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -581,7 +581,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -623,7 +623,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -665,7 +665,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -707,7 +707,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -749,7 +749,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -791,7 +791,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -833,7 +833,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -877,7 +877,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -945,7 +945,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -990,7 +990,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1032,7 +1032,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1083,7 +1083,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1128,7 +1128,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1170,7 +1170,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1218,7 +1218,7 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\admin\\SANN.sol": {
-      "lastModificationDate": 1718602018161,
+      "lastModificationDate": 1718708961500,
       "contentHash": "c973f9afac41064ef3650a384a4ae184",
       "sourceName": "contracts/admin/SANN.sol",
       "solcConfig": {
@@ -1226,7 +1226,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1273,7 +1273,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1315,7 +1315,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1360,7 +1360,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1405,7 +1405,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1447,7 +1447,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1492,7 +1492,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1534,7 +1534,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1578,7 +1578,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1622,7 +1622,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1667,7 +1667,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1712,7 +1712,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1762,7 +1762,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1806,7 +1806,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1848,7 +1848,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1890,7 +1890,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1932,7 +1932,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -1974,7 +1974,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2018,7 +2018,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2062,7 +2062,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2104,7 +2104,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2146,7 +2146,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2190,7 +2190,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2232,7 +2232,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2277,7 +2277,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2319,7 +2319,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2361,7 +2361,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2403,7 +2403,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2445,7 +2445,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2487,7 +2487,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2529,7 +2529,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2571,7 +2571,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2613,7 +2613,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2655,7 +2655,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2697,7 +2697,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2739,7 +2739,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2784,7 +2784,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2828,7 +2828,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2870,7 +2870,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2912,7 +2912,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -2960,7 +2960,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3002,7 +3002,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3044,7 +3044,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3086,7 +3086,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3128,7 +3128,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3172,7 +3172,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3221,7 +3221,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3265,7 +3265,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3309,7 +3309,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3353,7 +3353,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3401,7 +3401,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3435,7 +3435,7 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\registry\\SidRegistry.sol": {
-      "lastModificationDate": 1718613146336,
+      "lastModificationDate": 1718775256182,
       "contentHash": "d109823610b15d644d59d2502775ae05",
       "sourceName": "contracts/registry/SidRegistry.sol",
       "solcConfig": {
@@ -3443,7 +3443,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3487,7 +3487,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3542,7 +3542,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3587,7 +3587,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3633,7 +3633,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3678,7 +3678,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3725,7 +3725,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3770,7 +3770,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3815,7 +3815,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3860,7 +3860,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3905,7 +3905,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3950,7 +3950,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -3992,7 +3992,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4036,7 +4036,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4084,7 +4084,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4128,7 +4128,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4179,7 +4179,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4224,7 +4224,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4269,7 +4269,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4318,7 +4318,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4362,7 +4362,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4412,7 +4412,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4459,7 +4459,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4512,7 +4512,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4556,7 +4556,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4603,7 +4603,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4652,7 +4652,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4707,7 +4707,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4743,15 +4743,15 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\admin\\TldFactory.sol": {
-      "lastModificationDate": 1718785112328,
-      "contentHash": "f131bf7652cc2aca0cf9e39ecc8e34ae",
+      "lastModificationDate": 1718864967429,
+      "contentHash": "79d654f5f21b22d202735fa28eca342f",
       "sourceName": "contracts/admin/TldFactory.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4811,7 +4811,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4856,7 +4856,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4903,7 +4903,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4947,7 +4947,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -4995,7 +4995,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5039,7 +5039,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5084,7 +5084,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5126,7 +5126,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5168,7 +5168,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5210,7 +5210,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5252,7 +5252,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5294,7 +5294,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5336,7 +5336,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
@@ -5378,7 +5378,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 1000
+            "runs": 200
           },
           "outputSelection": {
             "*": {
