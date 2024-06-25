@@ -1,63 +1,139 @@
 const axios = require('axios');
+require('dotenv').config();
 
-async function fetchData() {
-  try {
-    const response = await axios.post('https://api.studio.thegraph.com/query/76606/metatlds/version/latest', {
-      query: `
-        {
-          domains(first: 1000) {
-            id
-            name
-            labelName
-            labelhash
-          }
+const GRAPHQL_API = process.env.GRAPHQL_API;
+const COINGECKO_API = process.env.COINGECKO_API;
+const QUERY = `
+query MyQuery {
+  domains {
+    createdAt
+    labelName
+    name
+    labelhash
+    owner {
+      id
+      registrations {
+        cost
+        expiryDate
+        labelName
+        registrationDate
+        registrant {
+          id
         }
-      `
-    });
-
-    const domains = response.data.data.domains;
-
-    const tldsSet = new Set();
-    const tldDomainMap = {};
-
-    domains.forEach(domain => {
-      if (domain.name && !domain.name.includes('undefined') && !domain.name.includes('addr') && !domain.name.includes('reverse') && !domain.name.includes('null')) {
-        const nameParts = domain.name.split('.');
-        if (nameParts.length === 3) { // Ensure exactly two dots in the name field
-          let tld = `.${nameParts[nameParts.length - 2]}`;
-          let domainName = nameParts.slice(0, -1).join('.');
-          
-          if (domainName && domainName !== tld) {
-              tldsSet.add(tld);
-              
-              if (!tldDomainMap[tld]) {
-                  tldDomainMap[tld] = [];
-                }
-                
-                // Only add the domain name without the hash suffix
-                if (!domainName.match(/^\[\w+\]$/)) {
-                    tldDomainMap[tld].push(domainName);
-                }
-            }
-        }
-        else if(nameParts.length === 2){
-            let tld = `.${nameParts[nameParts.length - 2]}`;
-            tldsSet.add(tld);
-        }
+      }
     }
-});
+    resolvedAddress {
+      id
+    }
+    resolver {
+      address
+    }
+    ttl
+  }
+}`;
 
-const tldsList = Array.from(tldsSet).filter(tld => tld !== '.null');
-    return { tlds: tldsList, tldDomainMap };
+
+// COST IS INCLUDED MANUALLY IN THE DOMAIN OBJECT
+const LETTER_PRICES = [
+  { letters: 3, priceWei: 20597680029427 },
+  { letters: 4, priceWei: 5070198161089 },
+  { letters: 5, priceWei: 158443692534 } // 5 or more letters
+];
+
+async function fetchEthPrice() {
+  try {
+    const response = await axios.get(COINGECKO_API);
+    return response.data.ethereum.usd;
   } catch (error) {
-    console.error('Error fetching data:', error);
-    return null;
+    console.error('Error fetching ETH price:', error);
+    return 2000; // Fallback to a default value if the API call fails
   }
 }
 
-fetchData().then(data => {
-  if (data) {
-    console.log('TLDs List:', data.tlds);
-    console.log('TLD Domain Map:', data.tldDomainMap);
+function convertWeiToDollars(wei, ethPrice) {
+  const WEI_TO_ETH_CONVERSION_RATE = 1e18;
+  const dollars = (wei / WEI_TO_ETH_CONVERSION_RATE) * ethPrice;
+  return `$${dollars.toFixed(4)}`;
+}
+
+function getPriceForDomain(domainName, ethPrice) {
+  const nameLength = domainName ? domainName.split('.')[0].length : 0;
+  let priceWei = LETTER_PRICES.find(({ letters }) => nameLength <= letters)?.priceWei || LETTER_PRICES[2].priceWei;
+  return convertWeiToDollars(priceWei, ethPrice);
+}
+
+async function fetchData() {
+  try {
+    const response = await axios.post(GRAPHQL_API, { query: QUERY });
+    return response.data.data.domains;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
   }
-});
+}
+
+function formatDate(timestamp) {
+  const date = new Date(parseInt(timestamp) * 1000);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  return `${year}-${month}-${day} ${hours}:${minutes}`;
+}
+
+async function processDomains(domains, ethPrice) {
+  const tldList = [];
+  const tldDomainMap = {};
+
+  domains.forEach(domain => {
+    const { createdAt, name, owner, resolvedAddress, resolver, ttl } = domain;
+    const ownerID = owner ? owner.id : null;
+    const createdAtFormatted = formatDate(createdAt);
+    const cost = getPriceForDomain(name, ethPrice);
+
+    if (!name || name.includes('reverse') || name.includes('addr')) return;
+
+    const parts = name.split('.');
+    if (parts.length === 2) {
+      const tld = `.${parts[0]}`;
+      if (!tldList.some(tldObj => tldObj.tld === tld)) {
+        tldList.push({
+          tld,
+          createdAt: createdAtFormatted,
+          ownerID
+        });
+      }
+    } else if (parts.length === 3) {
+      const tld = `.${parts[1]}`;
+      const domainName = `${parts[0]}.${parts[1]}`;
+      const domainInfo = {
+        createdAt: createdAtFormatted,
+        ownerID,
+        registrations: owner ? owner.registrations : [],
+        resolvedAddress: resolvedAddress ? resolvedAddress.id : null,
+        resolver: resolver ? resolver.address : null,
+        ttl,
+        cost
+      };
+      
+      if (!tldDomainMap[tld]) {
+        tldDomainMap[tld] = {};
+      }
+      tldDomainMap[tld][domainName] = domainInfo;
+    }
+  });
+
+  return { tldList, tldDomainMap };
+}
+
+async function main() {
+  const ethPrice = await fetchEthPrice();
+  const domains = await fetchData();
+  const { tldList, tldDomainMap } = await processDomains(domains, ethPrice);
+
+  console.log('TLDs List:', JSON.stringify(tldList, null, 2));
+  console.log('TLD Domain Map:', JSON.stringify(tldDomainMap, null, 2));
+}
+
+main();
