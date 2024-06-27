@@ -1,10 +1,11 @@
-import { ethers } from "hardhat";
+import { ethers, utils } from "hardhat";
 import { time } from "@nomicfoundation/hardhat-network-helpers";
 import { toBigInt, sha3, utf8ToBytes } from "web3-utils";
 import { Interface, keccak256 } from "ethers";
 import { getInitializerData } from "./utils";
 import fs from "fs";
 import path from "path";
+import root from "./merkleRoot.json";
 
 const CHAIN_ID = 80002;
 // const CHAIN_ID = 13337; // Localhost ChainId
@@ -67,11 +68,11 @@ async function deployToolkit(
 
   const signer = await ethers.getSigners();
 
-  console.log("Deploying SidRegistry...");
-  const registryFactory = await ethers.getContractFactory("SidRegistry");
+  console.log("Deploying MetaTldsRegistry...");
+  const registryFactory = await ethers.getContractFactory("MetaTldsRegistry");
   const registry = await registryFactory.deploy(signer[0].address);
   await registry.waitForDeployment();
-  console.log(`SidRegistry deployed at: ${await registry.getAddress()}`);
+  console.log(`MetaTldsRegistry deployed at: ${await registry.getAddress()}`);
 
   console.log("Deploying SANN implementation...");
   const sannImplFactory = await ethers.getContractFactory("SANN");
@@ -318,6 +319,13 @@ async function deployToolkit(
     );
   console.log(`TldFactory deployed at: ${await tldFactory.getAddress()}`);
 
+  try {
+    // Call the updateMerkleRoot function
+    const tx = await tldFactory.updateMerkleRoot(root.root);
+  } catch (error) {
+    console.error("Error updating Merkle root:", error);
+  }
+
   console.log("0");
   await sann
   .connect(platformAdmin)
@@ -369,6 +377,8 @@ async function deployToolkit(
   .connect(platformAdmin)
   .setController(await registrar.getAddress(), true);
   console.log("9");
+
+  await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
   
   return {
     registry,

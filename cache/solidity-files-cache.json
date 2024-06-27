@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\access\\TldAccessable.sol": {
-      "lastModificationDate": 1718275225414,
-      "contentHash": "f612c296866472208f788e98c08e415e",
+      "lastModificationDate": 1719466013296,
+      "contentHash": "357a7a3f6fe815152258acbc866b32b1",
       "sourceName": "contracts/access/TldAccessable.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -175,8 +175,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\referral\\ReferralHub.sol": {
-      "lastModificationDate": 1718275225444,
-      "contentHash": "c2dbe3cdab85d741d1fa5815252b8dd4",
+      "lastModificationDate": 1719466563384,
+      "contentHash": "6c596850f30962564228e6daa3a56567",
       "sourceName": "contracts/referral/ReferralHub.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -211,7 +211,7 @@
       "imports": [
         "@openzeppelin/contracts/security/ReentrancyGuard.sol",
         "./IReferralHub.sol",
-        "../registry/ISidRegistry.sol",
+        "../registry/IMetaTldsRegistry.sol",
         "../access/TldAccessable.sol",
         "../admin/ISANN.sol",
         "../hook/IRewardHook.sol",
@@ -267,48 +267,6 @@
       ],
       "artifacts": [
         "IReferralHub"
-      ]
-    },
-    "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\registry\\ISidRegistry.sol": {
-      "lastModificationDate": 1718275225451,
-      "contentHash": "225f5d7af5b3a3679ee762aef24b93d9",
-      "sourceName": "contracts/registry/ISidRegistry.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "storageLayout",
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.8.4"
-      ],
-      "artifacts": [
-        "ISidRegistry"
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\hook\\IRewardHook.sol": {
@@ -869,8 +827,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\controller\\RegistrarController.sol": {
-      "lastModificationDate": 1718346368793,
-      "contentHash": "d54ff4b6c811654de8802525e9abb67f",
+      "lastModificationDate": 1719466522488,
+      "contentHash": "2407e5859a1aa9279010d6ded12d4332",
       "sourceName": "contracts/controller/RegistrarController.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -1024,8 +982,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\base\\Base.sol": {
-      "lastModificationDate": 1718275225427,
-      "contentHash": "364f93a3624399f81085d7e1329ab990",
+      "lastModificationDate": 1719466563383,
+      "contentHash": "6cbd82c409be13e387ea28018c5f10df",
       "sourceName": "contracts/base/Base.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -1063,7 +1021,7 @@
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/utils/Strings.sol",
         "./IBase.sol",
-        "../registry/ISidRegistry.sol",
+        "../registry/IMetaTldsRegistry.sol",
         "../admin/ISANN.sol",
         "../access/TldAccessable.sol"
       ],
@@ -1218,8 +1176,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\admin\\SANN.sol": {
-      "lastModificationDate": 1718708961500,
-      "contentHash": "c973f9afac41064ef3650a384a4ae184",
+      "lastModificationDate": 1719466563402,
+      "contentHash": "0970284498406204dbe8d0e08137e203",
       "sourceName": "contracts/admin/SANN.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -1253,7 +1211,7 @@
       },
       "imports": [
         "./ISANN.sol",
-        "../registry/ISidRegistry.sol",
+        "../registry/IMetaTldsRegistry.sol",
         "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
       ],
@@ -1307,8 +1265,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\access\\TldAccessableUpgradeable.sol": {
-      "lastModificationDate": 1718275225414,
-      "contentHash": "36ea68659286d863b25b34192e068ef0",
+      "lastModificationDate": 1719466058016,
+      "contentHash": "962eec03eabfad1a82be3cf8ac3ab6fc",
       "sourceName": "contracts/access/TldAccessableUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -3345,8 +3303,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\proxy\\BaseCreator.sol": {
-      "lastModificationDate": 1718275225444,
-      "contentHash": "3397539f53ef534e5a8891faa4b00fc7",
+      "lastModificationDate": 1719466563384,
+      "contentHash": "21cda74c78b2cc30209c9e5458624654",
       "sourceName": "contracts/proxy/BaseCreator.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -3382,7 +3340,7 @@
         "./IBaseCreator.sol",
         "../admin/SANN.sol",
         "../base/Base.sol",
-        "../registry/SidRegistry.sol",
+        "../registry/MetaTldsRegistry.sol",
         "../access/TldAccessable.sol"
       ],
       "versionPragmas": [
@@ -3434,53 +3392,9 @@
         "IBaseCreator"
       ]
     },
-    "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\registry\\SidRegistry.sol": {
-      "lastModificationDate": 1718775256182,
-      "contentHash": "d109823610b15d644d59d2502775ae05",
-      "sourceName": "contracts/registry/SidRegistry.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "storageLayout",
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "./ISidRegistry.sol"
-      ],
-      "versionPragmas": [
-        ">=0.8.4"
-      ],
-      "artifacts": [
-        "SidRegistry"
-      ]
-    },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\resolvers\\PublicResolver.sol": {
-      "lastModificationDate": 1718275225451,
-      "contentHash": "2d05f93300ac6752d737cd13d0557aa8",
+      "lastModificationDate": 1719466563383,
+      "contentHash": "cc9d12c206d6ebfef2a4373274cf5263",
       "sourceName": "contracts/resolvers/PublicResolver.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -3521,7 +3435,7 @@
         "./profiles/PubkeyResolver.sol",
         "./profiles/TextResolver.sol",
         "./Multicallable.sol",
-        "../registry/ISidRegistry.sol",
+        "../registry/IMetaTldsRegistry.sol",
         "./profiles/TldNameResolver.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
@@ -4028,8 +3942,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\giftcard\\GiftCardBase.sol": {
-      "lastModificationDate": 1718275225429,
-      "contentHash": "c0d8d7a9abe959d3cf34b0dc9f7d0f34",
+      "lastModificationDate": 1719466047344,
+      "contentHash": "e14dc902d9c4f90580bae1dc4b9895e7",
       "sourceName": "contracts/giftcard/GiftCardBase.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -4743,8 +4657,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\admin\\TldFactory.sol": {
-      "lastModificationDate": 1718864967429,
-      "contentHash": "79d654f5f21b22d202735fa28eca342f",
+      "lastModificationDate": 1719465354718,
+      "contentHash": "26084ea98f8d005266b88b41ea5ac557",
       "sourceName": "contracts/admin/TldFactory.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -4793,7 +4707,8 @@
         "./IPlatformConfig.sol",
         "../proxy/IPreRegistrationCreator.sol",
         "../admin/PrepaidPlatformFee.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -4939,8 +4854,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\registrar\\ReverseRegistrar.sol": {
-      "lastModificationDate": 1718275225451,
-      "contentHash": "0e013588341d2537d3b7f8e5207f6d21",
+      "lastModificationDate": 1719466563383,
+      "contentHash": "8fbd7b19cc6690df3e4b7e221b5024ab",
       "sourceName": "contracts/registrar/ReverseRegistrar.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -4974,7 +4889,7 @@
       },
       "imports": [
         "@openzeppelin/contracts/access/Ownable.sol",
-        "../registry/SidRegistry.sol",
+        "../registry/MetaTldsRegistry.sol",
         "./IReverseRegistrar.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
       ],
@@ -5409,6 +5324,134 @@
       ],
       "artifacts": [
         "DummyOracle"
+      ]
+    },
+    "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\node_modules\\@openzeppelin\\contracts\\utils\\cryptography\\MerkleProof.sol": {
+      "lastModificationDate": 1718278814133,
+      "contentHash": "1ccd3348ad628f1330ce36eb6a30618d",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MerkleProof"
+      ]
+    },
+    "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\registry\\IMetaTldsRegistry.sol": {
+      "lastModificationDate": 1719466588963,
+      "contentHash": "390e46e6ed43fd7abe8eb4658aaa9d61",
+      "sourceName": "contracts/registry/IMetaTldsRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.4"
+      ],
+      "artifacts": [
+        "IMetaTldsRegistry"
+      ]
+    },
+    "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\registry\\MetaTldsRegistry.sol": {
+      "lastModificationDate": 1719466600089,
+      "contentHash": "2496c35a580c4160010f384acc4be712",
+      "sourceName": "contracts/registry/MetaTldsRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./IMetaTldsRegistry.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.4"
+      ],
+      "artifacts": [
+        "MetaTldsRegistry"
       ]
     }
   }

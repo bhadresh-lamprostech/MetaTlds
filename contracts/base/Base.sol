@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "./IBase.sol";
-import "../registry/ISidRegistry.sol";
+import "../registry/IMetaTldsRegistry.sol";
 import "../admin/ISANN.sol";
 import "../access/TldAccessable.sol";
 
@@ -16,7 +16,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
     // A map of expiry times
     mapping(uint256 => uint) expiries;
     // The sid registry
-    ISidRegistry public sidRegistry;
+    IMetaTldsRegistry public metaTldsRegistry;
     // The namehash of the TLD this registrar owns nodehash(tld.identifier)
     bytes32 public baseNode;
     //uniquely identifies this a TLD on a specific chain
@@ -69,12 +69,12 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
 
     constructor(
         ISANN _sann,
-        ISidRegistry _sidRegistry,
+        IMetaTldsRegistry _metaTldsRegistry,
         uint256 _identifier,
         string memory _tld,
         string memory _baseUri
-    ) ERC721("SPACE ID Name Service", _tld) TldAccessable(_sann) {
-        sidRegistry = _sidRegistry;
+    ) ERC721("MetaTLDs Name Service", _tld) TldAccessable(_sann) {
+        metaTldsRegistry = _metaTldsRegistry;
         identifier = _identifier;
         tld = _tld;
         baseNode = keccak256(
@@ -87,7 +87,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
     }
 
     modifier live() {
-        require(sidRegistry.owner(baseNode) == address(this));
+        require(metaTldsRegistry.owner(baseNode) == address(this));
         _;
     }
 
@@ -119,7 +119,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
         );
 
         _transfer(from, to, tokenId);
-        sidRegistry.setSubnodeOwner(baseNode, bytes32(tokenId), to);
+        metaTldsRegistry.setSubnodeOwner(baseNode, bytes32(tokenId), to);
     }
 
     /**
@@ -136,7 +136,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
             "ERC721: caller is not approved or owner"
         );
         _safeTransfer(from, to, tokenId, _data);
-        sidRegistry.setSubnodeOwner(baseNode, bytes32(tokenId), to);
+        metaTldsRegistry.setSubnodeOwner(baseNode, bytes32(tokenId), to);
     }
 
     /**
@@ -154,7 +154,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
 
     // Set the resolver for the TLD this registrar manages.
     function setResolver(address resolver) external override onlyPlatformAdmin {
-        sidRegistry.setResolver(baseNode, resolver);
+        metaTldsRegistry.setResolver(baseNode, resolver);
     }
 
     // Returns the expiration timestamp of the specified id.
@@ -214,7 +214,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
         }
         _mint(owner, id);
         if (updateRegistry) {
-            sidRegistry.setSubnodeOwner(baseNode, bytes32(id), owner);
+            metaTldsRegistry.setSubnodeOwner(baseNode, bytes32(id), owner);
         }
         emit NameRegistered(id, owner, block.timestamp + duration);
 
@@ -239,7 +239,7 @@ contract Base is ERC721, ERC2981, IBase, TldAccessable {
      */
     function reclaim(uint256 id, address owner) external override live {
         require(_isApprovedOrOwner(msg.sender, id));
-        sidRegistry.setSubnodeOwner(baseNode, bytes32(id), owner);
+        metaTldsRegistry.setSubnodeOwner(baseNode, bytes32(id), owner);
     }
 
     function supportsInterface(

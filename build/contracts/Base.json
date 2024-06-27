@@ -7,8 +7,8 @@
         "type": "address"
       },
       {
-        "internalType": "contract ISidRegistry",
-        "name": "_sidRegistry",
+        "internalType": "contract IMetaTldsRegistry",
+        "name": "_metaTldsRegistry",
         "type": "address"
       },
       {
@@ -360,6 +360,19 @@
   },
   {
     "inputs": [],
+    "name": "metaTldsRegistry",
+    "outputs": [
+      {
+        "internalType": "contract IMetaTldsRegistry",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "name",
     "outputs": [
       {
@@ -698,19 +711,6 @@
     "name": "setURI",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "sidRegistry",
-    "outputs": [
-      {
-        "internalType": "contract ISidRegistry",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {

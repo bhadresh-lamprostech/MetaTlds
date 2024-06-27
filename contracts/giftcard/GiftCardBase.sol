@@ -34,7 +34,7 @@ contract GiftCardBase is
     }
 
     function name() public view virtual returns (string memory) {
-        return "SPACE ID Gift Card";
+        return "MetaTLDs Gift Card";
     }
 
     function symbol() public view virtual returns (string memory) {

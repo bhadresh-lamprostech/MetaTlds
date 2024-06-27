@@ -413,8 +413,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract ISidRegistry",
-        "name": "_sidRegistry",
+        "internalType": "contract IMetaTldsRegistry",
+        "name": "_metaTldsRegistry",
         "type": "address"
       },
       {
@@ -476,6 +476,19 @@
         "internalType": "bool",
         "name": "",
         "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "metaTldsRegistry",
+    "outputs": [
+      {
+        "internalType": "contract IMetaTldsRegistry",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -816,19 +829,6 @@
     "name": "setTldName",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "sidRegistry",
-    "outputs": [
-      {
-        "internalType": "contract ISidRegistry",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {

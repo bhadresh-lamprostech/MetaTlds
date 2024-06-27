@@ -10,7 +10,7 @@ import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Ini
  * 1. TLD owner: the owner of the TLD.
  * 2. TLD factory: the factory contract that creates the TLD.
  * 3. TLD controller: the controller contract of the TLD.
- * 4. Platform admin: the admin of the platform, i.e. Space ID DAO
+ * 4. Platform admin: the admin of the platform, i.e. MetaTLDs DAO
  */
 abstract contract TldAccessableUpgradeable is Initializable {
     ISANN public sann;

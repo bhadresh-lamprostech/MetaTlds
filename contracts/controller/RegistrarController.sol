@@ -1028,7 +1028,7 @@ contract RegistrarController is
         emit NameRegistered(identifier, name, label, owner, cost, expires);
 
         bytes32 nodehash = keccak256(abi.encodePacked(base.baseNode(), label));
-        base.sidRegistry().setResolver(nodehash, resolver);
+        base.metaTldsRegistry().setResolver(nodehash, resolver);
         if (owner != address(0)) {
             Resolver(resolver).setAddr(nodehash, owner);
         }

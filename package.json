@@ -1,15 +1,16 @@
 {
-    "name": "spaceid-toolkit-contracts",
+    "name": "metatlds-toolkit-contracts",
     "version": "1.0.0",
     "description": "toolkit contracts for issuing customized domain name service",
+  
     "license": "MIT",
     "author": {
-        "name": "eddie",
-        "email": "eddie@space.id"
+        "name": "Bhadresh",
+        "email": "bhadresh.lamprostech@gmail.com"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Space-ID/spaceid-toolkit-contracts.git"
+        "url": "https://github.com/bhadresh-lamprostech/MetaTlds.git"
     },
     "main": "index.js",
     "scripts": {
@@ -28,7 +29,9 @@
     },
     "dependencies": {
         "@openzeppelin/contracts": "^4.9.2",
-        "@openzeppelin/contracts-upgradeable": "^4.9.3"
+        "@openzeppelin/contracts-upgradeable": "^4.9.3",
+        "crypto-js": "^4.2.0",
+        "merkletreejs": "^0.3.11"
     },
     "devDependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^2.0.1",
@@ -48,7 +51,7 @@
         "dotenv": "^16.3.1",
         "elliptic-solidity": "^1.0.0",
         "eth-ens-namehash": "^2.0.8",
-        "ethers": "^6.7.0",
+        "ethers": "^6.13.1",
         "hardhat": "^2.17.1",
         "hardhat-abi-exporter": "^2.10.1",
         "hardhat-deploy": "^0.11.10",

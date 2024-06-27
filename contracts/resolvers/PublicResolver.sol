@@ -9,7 +9,7 @@ import "./profiles/NameResolver.sol";
 import "./profiles/PubkeyResolver.sol";
 import "./profiles/TextResolver.sol";
 import "./Multicallable.sol";
-import "../registry/ISidRegistry.sol";
+import "../registry/IMetaTldsRegistry.sol";
 import "./profiles/TldNameResolver.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
@@ -30,7 +30,7 @@ TldNameResolver,
 Ownable,
 Initializable
 {
-    ISidRegistry public sidRegistry;
+    IMetaTldsRegistry public metaTldsRegistry;
     mapping(address => bool) trustedControllers;
 
     /**
@@ -53,11 +53,11 @@ Initializable
     }
 
     function initialize (
-        ISidRegistry _sidRegistry,
+        IMetaTldsRegistry _metaTldsRegistry,
         address _trustedController,
         uint _defaultCoinType
     ) public initializer onlyOwner {
-        sidRegistry = _sidRegistry;
+        metaTldsRegistry = _metaTldsRegistry;
         trustedControllers[_trustedController] = true;
         setDefaultCoinType(_defaultCoinType);
     }
@@ -91,7 +91,7 @@ Initializable
         ) {
             return true;
         }
-        address owner = sidRegistry.owner(node);
+        address owner = metaTldsRegistry.owner(node);
         return owner == msg.sender || isApprovedForAll(owner, msg.sender);
     }
 

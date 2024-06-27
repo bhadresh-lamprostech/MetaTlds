@@ -1,8 +1,15 @@
 const axios = require('axios');
 require('dotenv').config();
+const{toolkit} = require ( "../scripts/deployments.json");
+const { ethers } = require("ethers");
+const web3Utils = require("web3-utils");
+
 
 const GRAPHQL_API = process.env.GRAPHQL_API;
 const COINGECKO_API = process.env.COINGECKO_API;
+
+const contractAddress =toolkit.registrar;
+
 const QUERY = `
 query MyQuery {
   domains {
@@ -33,34 +40,52 @@ query MyQuery {
 }`;
 
 
-// COST IS INCLUDED MANUALLY IN THE DOMAIN OBJECT
-const LETTER_PRICES = [
-  { letters: 3, priceWei: 20597680029427 },
-  { letters: 4, priceWei: 5070198161089 },
-  { letters: 5, priceWei: 158443692534 } // 5 or more letters
-];
 
-async function fetchEthPrice() {
-  try {
-    const response = await axios.get(COINGECKO_API);
-    return response.data.ethereum.usd;
-  } catch (error) {
-    console.error('Error fetching ETH price:', error);
-    return 2000; // Fallback to a default value if the API call fails
-  }
+async function estimatedPrice(domainRegistered) {
+  const registrationDuration = 31556952;
+  const contractABI = require("../artifacts/contracts/controller/RegistrarController.sol/RegistrarController.json");
+  const contract = new ethers.Contract(
+    contractAddress,
+    contractABI.abi,
+    wallet
+  );
+
+  const estimatedPriceArray = await contract.rentPrice(
+    toBigInt(identifier),
+    domainRegistered,
+    registrationDuration,
+  );
+  return estimatedPriceArray;
 }
 
-function convertWeiToDollars(wei, ethPrice) {
-  const WEI_TO_ETH_CONVERSION_RATE = 1e18;
-  const dollars = (wei / WEI_TO_ETH_CONVERSION_RATE) * ethPrice;
-  return `$${dollars.toFixed(4)}`;
-}
+// // COST IS INCLUDED MANUALLY IN THE DOMAIN OBJECT
+// const LETTER_PRICES = [
+//   { letters: 3, priceWei: 20597680029427 },
+//   { letters: 4, priceWei: 5070198161089 },
+//   { letters: 5, priceWei: 158443692534 } // 5 or more letters
+// ];
 
-function getPriceForDomain(domainName, ethPrice) {
-  const nameLength = domainName ? domainName.split('.')[0].length : 0;
-  let priceWei = LETTER_PRICES.find(({ letters }) => nameLength <= letters)?.priceWei || LETTER_PRICES[2].priceWei;
-  return convertWeiToDollars(priceWei, ethPrice);
-}
+// async function fetchEthPrice() {
+  //   try {
+//     const response = await axios.get(COINGECKO_API);
+//     return response.data.ethereum.usd;
+//   } catch (error) {
+//     console.error('Error fetching ETH price:', error);
+//     return 2000; // Fallback to a default value if the API call fails
+//   }
+// }
+
+// function convertWeiToDollars(wei, ethPrice) {
+//   const WEI_TO_ETH_CONVERSION_RATE = 1e18;
+//   const dollars = (wei / WEI_TO_ETH_CONVERSION_RATE) * ethPrice;
+//   return `$${dollars.toFixed(4)}`;
+// }
+
+// function getPriceForDomain(domainName, ethPrice) {
+//   const nameLength = domainName ? domainName.split('.')[0].length : 0;
+//   let priceWei = LETTER_PRICES.find(({ letters }) => nameLength <= letters)?.priceWei || LETTER_PRICES[2].priceWei;
+//   return convertWeiToDollars(priceWei, ethPrice);
+// }
 
 async function fetchData() {
   try {
@@ -82,7 +107,7 @@ function formatDate(timestamp) {
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
 
-async function processDomains(domains, ethPrice) {
+async function processDomains(domains) {
   const tldList = [];
   const tldDomainMap = {};
 
@@ -90,7 +115,7 @@ async function processDomains(domains, ethPrice) {
     const { createdAt, name, owner, resolvedAddress, resolver, ttl } = domain;
     const ownerID = owner ? owner.id : null;
     const createdAtFormatted = formatDate(createdAt);
-    const cost = getPriceForDomain(name, ethPrice);
+    // const cost = getPriceForDomain(name);
 
     if (!name || name.includes('reverse') || name.includes('addr')) return;
 
@@ -114,7 +139,7 @@ async function processDomains(domains, ethPrice) {
         resolvedAddress: resolvedAddress ? resolvedAddress.id : null,
         resolver: resolver ? resolver.address : null,
         ttl,
-        cost
+        // cost
       };
       
       if (!tldDomainMap[tld]) {
@@ -128,9 +153,9 @@ async function processDomains(domains, ethPrice) {
 }
 
 async function main() {
-  const ethPrice = await fetchEthPrice();
+  // const ethPrice = await fetchEthPrice();
   const domains = await fetchData();
-  const { tldList, tldDomainMap } = await processDomains(domains, ethPrice);
+  const { tldList, tldDomainMap } = await processDomains(domains);
 
   console.log('TLDs List:', JSON.stringify(tldList, null, 2));
   console.log('TLD Domain Map:', JSON.stringify(tldDomainMap, null, 2));

@@ -3,7 +3,7 @@ pragma solidity >=0.8.4;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import {IReferralHub} from "./IReferralHub.sol";
-import {ISidRegistry} from "../registry/ISidRegistry.sol";
+import {IMetaTldsRegistry} from "../registry/IMetaTldsRegistry.sol";
 import {TldAccessable} from "../access/TldAccessable.sol";
 import {ISANN} from "../admin/ISANN.sol";
 import {IRewardHook} from "../hook/IRewardHook.sol";

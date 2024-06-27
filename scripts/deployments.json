@@ -1,40 +1,21 @@
 {
   "toolkit": {
-    "registry": "0x0651ce591aEa9C7aD348c785599fedbdF8AF5e01",
-    "sann": "0xBd35F0EA4BC70066a552937a0043747A39b69a70",
-    "registrar": "0x926eD22328a13CEEA14B2A3Fe68e2DFA512C58Dd",
-    "usdOracle": "0x8f3E32D08d4d693a603A127cb7EcF308C32C028d",
-    "platformConfig": "0x1b1BC3FDFb06Cc80d67790cbF2df563506972dd6",
-    "priceOracle": "0x01c0a6266c89868418DF20e3c3d7C4939e7aCcEC",
-    "prepaidPlatformFee": "0x06125C0a106Cd2aBEC11Ca1Dc28804790A91325C",
-    "giftCardBase": "0xC29bbbf438d39D3F3BCAA369b4AF39C40D5c7209",
-    "giftCardVoucher": "0x55cC28Ca45C81CF299215258683dfEa31Bf38c5c",
-    "giftCardLedger": "0x4EF8A2cCc0336298cd4e8f6eF3C3FBd4E5C26326",
-    "giftCardController": "0x602448DDaD34E5dB1AB1f1a07B74703738D7B02E",
-    "referralHub": "0x17F403Bb04a6E315A750310371a9E3EEf73b6a27",
-    "baseCreator": "0xc8926b8bC631AbFa9e4fC5B09d6622BA765DB8B8",
-    "preRegistrationCreator": "0xFE9d958eDef6E901628907A88DC142A3aD0B18a1",
-    "tldFactory": "0xf98D3Fe747e1bBEF23E0830caE6efc2C304fFDDE",
-    "resolver": "0x160567e5F1b1A960d325AB395748ba5A2597029F",
-    "reverseRegistrar": "0x143a254ea3525Ae440766D71be9f39acc90907A3"
-  },
-  "tld": {
-    "identifier": "2156872374973454712715945891831439923757061369351424217488185182237325115",
-    "tldBase": "0x8a8d7b6dfdFE02970001C08C207a10bf09Ff6DAf",
-    "referralComissions": [
-      {
-        "minimumReferralCount": 1,
-        "referrerRate": 10,
-        "refereeRate": 5,
-        "isValid": true
-      },
-      {
-        "minimumReferralCount": 3,
-        "referrerRate": 15,
-        "refereeRate": 10,
-        "isValid": true
-      }
-    ],
-    "publicRegistrationStartTime": 1718880957
+    "registry": "0x930b218f3e63eE452c13561057a8d5E61367d5b7",
+    "sann": "0x38c76A767d45Fc390160449948aF80569E2C4217",
+    "registrar": "0x969E3128DB078b179E9F3b3679710d2443cCDB72",
+    "usdOracle": "0x3BFbbf82657577668144921b96aAb72BC170646C",
+    "platformConfig": "0xfc073209b7936A771F77F63D42019a3a93311869",
+    "priceOracle": "0xa8d297D643a11cE83b432e87eEBce6bee0fd2bAb",
+    "prepaidPlatformFee": "0x68d2Ecd85bDEbfFd075Fb6D87fFD829AD025DD5C",
+    "giftCardBase": "0x4653251486a57f90Ee89F9f34E098b9218659b83",
+    "giftCardVoucher": "0x89ec9355b1Bcc964e576211c8B011BD709083f8d",
+    "giftCardLedger": "0x72662E4da74278430123cE51405c1e7A1B87C294",
+    "giftCardController": "0x52bad4A8584909895C22bdEcf8DBF33314468Fb0",
+    "referralHub": "0xc775bF567D67018dfFac4E89a7Cf10f0EDd0Be93",
+    "baseCreator": "0x43b9Ef43D415e84aD9964567002d648b11747A8f",
+    "preRegistrationCreator": "0xFCa5Bb3732185AE6AaFC65aD8C9A4fBFf21DbaaD",
+    "tldFactory": "0x9eb52339B52e71B1EFD5537947e75D23b3a7719B",
+    "resolver": "0x32cd5ecdA7f2B8633C00A0434DE28Db111E60636",
+    "reverseRegistrar": "0x9D3999af03458c11C78F7e6C0fAE712b455D4e33"
   }
 }

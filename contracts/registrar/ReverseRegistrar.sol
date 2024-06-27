@@ -3,7 +3,7 @@ pragma solidity >=0.8.4;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-import "../registry/SidRegistry.sol";
+import "../registry/MetaTldsRegistry.sol";
 import "./IReverseRegistrar.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
@@ -24,7 +24,7 @@ bytes32 constant ADDR_REVERSE_NODE = 0x91d1777781884d03a6757a803996e38de2a42967f
 // namehash('addr.reverse')
 
 contract ReverseRegistrar is Ownable, IReverseRegistrar, Initializable {
-    SidRegistry public sid;
+    MetaTldsRegistry public sid;
     ReverseResolver public defaultResolver;
     mapping(address => bool) public controllers;
 
@@ -39,7 +39,7 @@ contract ReverseRegistrar is Ownable, IReverseRegistrar, Initializable {
         transferOwnership(owner);
     }
 
-    function initialize (SidRegistry sidAddr) public initializer onlyOwner {
+    function initialize (MetaTldsRegistry sidAddr) public initializer onlyOwner {
         sid = sidAddr;
     }
 

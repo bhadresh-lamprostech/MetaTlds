@@ -90,7 +90,7 @@ async function deployToolkit(
     await usdOracle.waitForDeployment();
     let signer = await ethers.getSigners();
     // registry
-    const registry = await ethers.deployContract("SidRegistry", [signer[0].address]);
+    const registry = await ethers.deployContract("MetaTldsRegistry", [signer[0].address]);
     await registry.waitForDeployment();
 
     const sannImpl = await ethers.deployContract("SANN", []);
@@ -372,7 +372,7 @@ async function registerTLD(
         preRegiDiscountRateBps: preRegiDiscountRateBps,
         publicRegistrationStartTime: publicRegistrationStartTime,
         publicRegistrationPaused: false,
-        baseUri: "https://space.id/metadata",
+        baseUri: "https://gateway.lighthouse.storage/ipfs/",
     };
     const tx: ContractTransaction = await tldFactory
         .connect(platformAdmin)
@@ -481,7 +481,7 @@ async function registerTLDWithoutPreRegi(
         preRegiDiscountRateBps: [0, 0, 2000, 2000, 2000], // 20% off
         publicRegistrationStartTime: publicRegistrationStartTime,
         publicRegistrationPaused: false,
-        baseUri: "https://space.id/metadata",
+        baseUri: "https://gateway.lighthouse.storage/ipfs/",
     };
     await tldFactory
         .connect(platformAdmin)

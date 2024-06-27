@@ -27,7 +27,7 @@ async function resolveAddressToENSName(address) {
   if (reverseNode === ethers.HashZero) {
     throw new Error(`No reverse resolution found for ${address}`);
   }
-
+  if (reverseNode === ethers.HashZero)
   // Connect to the resolver contract
   const resolverContract = new ethers.Contract(
     resolverAddress,

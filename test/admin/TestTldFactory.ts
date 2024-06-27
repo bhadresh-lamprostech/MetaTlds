@@ -53,7 +53,7 @@ var initData = {
     preRegiDiscountRateBps: [0, 0, 0, 2000, 2000, 2000], // 20% off
     publicRegistrationStartTime: now + 86400 + 3000,
     publicRegistrationPaused: false,
-    baseUri: "https://api.space.id/metadata/",
+    baseUri: "https://gateway.lighthouse.storage/ipfs/",
 };
 
 describe("TldFactory Test", function () {

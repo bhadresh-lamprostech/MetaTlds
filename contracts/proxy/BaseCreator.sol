@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "./IBaseCreator.sol";
 import "../admin/SANN.sol";
 import "../base/Base.sol";
-import "../registry/SidRegistry.sol";
+import "../registry/MetaTldsRegistry.sol";
 import "../access/TldAccessable.sol";
 
 contract BaseCreator is IBaseCreator, TldAccessable {
@@ -21,7 +21,7 @@ contract BaseCreator is IBaseCreator, TldAccessable {
             address(
                 new Base{salt: salt}(
                     SANN(address(sann)),
-                    SidRegistry(registry),
+                    MetaTldsRegistry(registry),
                     identifier,
                     tld,
                     baseUri

@@ -1,24 +1,26 @@
-import { contract, ethers } from "hardhat";
+import { contract, ethers, utils} from "hardhat";
 import { time } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { calIdentifier } from "./utils";
 import fs from "fs";
 import path from "path";
 // import { getCurrentUnixTime } from "./utils"; // Assuming you have a function to get current time
-import Deployments from "../scripts/deployments.json";
+import Deployments from "./deployments.json";
+import { root, generateProof } from './merkleProof';
+
 
 const dotenv = require('dotenv').config();
 
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
 
-const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
-const providerUrl = process.env.AMOY_API_KEY;
+// const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
+// const providerUrl = process.env.AMOY_API_KEY;
 
 
 // for localhost
-// const privateKey =
-//   "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-// const providerUrl = "https://127.0.0.1:8545";
+const privateKey =
+  "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const providerUrl = "https://127.0.0.1:8545";
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
@@ -30,10 +32,10 @@ function saveDeployments(newDeployment: any) {
 
 async function main() {
 
-    const [,tldOwner] = await ethers.getSigners();
+    const [tldOwner] = await ethers.getSigners();
     console.log(tldOwner.address);
     console.log(wallet.address);
-    const tldName = "qpe";
+    const tldName = "inv";
     const identifier = calIdentifier(80002, wallet.address, tldName);
 
     // STAKE ETH
@@ -90,22 +92,30 @@ async function stakeETH(
 
         // const setStakeLimit = await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
         // await setStakeLimit.wait();
-        const stakeTx = await tldFactory.stake(identifier, tldName, {
-        value: ethers.parseEther("0.001"),
-        gasLimit: 300000,
-        });
-        const receipt = await stakeTx.wait();
-        // console.log("Staking Tx Receipt", receipt);
+        const merkleProof = generateProof(tldName);
+        if(merkleProof.length === 0 ){
+          
+            const stakeTx = await tldFactory.stake(identifier, tldName, merkleProof, {
+            value: ethers.parseEther("0.001"),
+            gasLimit: 300000,
+            });
+            const receipt = await stakeTx.wait();
+            // console.log("Staking Tx Receipt", receipt);
+          
+          // Verify staking details
+          const stakeDetails = await tldFactory.getStakeDetails();
+          const stakedIdentifier = stakeDetails[1];
+          const stakedAmount = stakeDetails[2];
+          expect(stakedIdentifier).to.equal(identifier);
       
-      // Verify staking details
-      const stakeDetails = await tldFactory.getStakeDetails();
-      const stakedIdentifier = stakeDetails[1];
-      const stakedAmount = stakeDetails[2];
-      expect(stakedIdentifier).to.equal(identifier);
-  
-      console.log("Staked Amount (Wei):", stakedAmount.toString());
-      console.log("Staked Identifier:", stakedIdentifier.toString());
-      return true;
+          console.log("Staked Amount (Wei):", stakedAmount.toString());
+          console.log("Staked Identifier:", stakedIdentifier.toString());
+          return true;
+        }
+        else{
+          console.log("TLD already exist...");
+          return false;
+        }
     }
     catch(error) {
       console.log("error staking eth:", error);
@@ -176,7 +186,7 @@ async function registerTLD(
       preRegiDiscountRateBps: [],
       publicRegistrationStartTime: publicRegistrationStartTime,
       publicRegistrationPaused: false,
-      baseUri: "https://space.id/metadata",
+      baseUri: "https://gateway.lighthouse.storage/ipfs/",
     };
 
     // try {
@@ -193,8 +203,6 @@ async function registerTLD(
 
     const tldBaseAddr = await sann.tldBase(identifier);
     const tldBase = await ethers.getContractAt("Base", tldBaseAddr);
-
-    await tldFactory.updateTldList(tldName, identifier);
 
     console.log("Tx Receipt: ", receipt);
     return {
