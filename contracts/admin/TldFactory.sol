@@ -55,6 +55,8 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     mapping(address => uint256) public identifiers;
     uint256 public MINIMUM_STAKE;
 
+    string[] public tldRegistered;
+
     event Staked(address indexed user, uint256 amount);
     event UnStake(address indexed user, uint256 amount);
 
@@ -181,6 +183,7 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
             address(registrar),
             baseAddress
         );
+        tldRegistered.push(tld);
         return identifier;
     }
 
@@ -347,7 +350,15 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
 
     function checkAvailability(string calldata tld, bytes32[] memory proof) public view returns (bool) {
         bytes32 leaf = keccak256(abi.encodePacked(tld));
-        return MerkleProof.verify(proof, merkleRoot, leaf);
+        bool isRegistered = false;
+        for (uint i = 0; i < tldRegistered.length; i++) {
+            if (keccak256(abi.encodePacked(tldRegistered[i])) == keccak256(abi.encodePacked(tld))) {
+                isRegistered = true;
+                break;
+            }
+
+        }
+        return (MerkleProof.verify(proof, merkleRoot, leaf) || isRegistered );
     }
 
     function getStakeDetails() external view returns (address owner, uint256 identifier, uint256 stakedAmount) {
@@ -389,4 +400,5 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
         require(stakes[msg.sender] >= MINIMUM_STAKE, "You must stake the required amount of ETH");
         _;
     }
+
 }
