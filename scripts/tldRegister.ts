@@ -35,7 +35,7 @@ async function main() {
     const [tldOwner] = await ethers.getSigners();
     console.log(tldOwner.address);
     console.log(wallet.address);
-    const tldName = "ethics";
+    const tldName = "comic";
     const identifier = calIdentifier(80002, wallet.address, tldName);
 
     // STAKE ETH
@@ -94,28 +94,33 @@ async function stakeETH(
         // await setStakeLimit.wait();
         const merkleProof = generateProof(tldName);
         console.log(merkleProof);
-        if(merkleProof.length === 0 && await tldFactory.checkAvailability(tldName, merkleProof) ){
-      
-            const stakeTx = await tldFactory.stake(identifier, tldName, merkleProof, {
-            value: ethers.parseEther("0.001"),
-            gasLimit: 300000,
-            });
-            const receipt = await stakeTx.wait();
-            // console.log("Staking Tx Receipt", receipt);
-          
-            // Verify staking details
-            const stakeDetails = await tldFactory.getStakeDetails();
-            const stakedIdentifier = stakeDetails[1];
-            const stakedAmount = stakeDetails[2];
-            expect(stakedIdentifier).to.equal(identifier);
-        
-            console.log("Staked Amount (Wei):", stakedAmount.toString());
-            console.log("Staked Identifier:", stakedIdentifier.toString());
-            return true;
+
+        if(merkleProof.length !==0 ){
+          console.log("TLD is already registered on the global registry.");
+          return false;
+        }
+        else if(! (await tldFactory.checkAvailability(tldName, merkleProof))){
+          console.log("TLD is already registered on MetaTLDs");
+          return false;
         }
         else{
-          console.log("TLD already exist...");
-          return false;
+          const stakeTx = await tldFactory.stake(identifier, tldName, merkleProof, {
+          value: ethers.parseEther("0.001"),
+          gasLimit: 300000,
+          });
+          const receipt = await stakeTx.wait();
+          // console.log("Staking Tx Receipt", receipt);
+        
+          // Verify staking details
+          const stakeDetails = await tldFactory.getStakeDetails();
+          const stakedIdentifier = stakeDetails[1];
+          const stakedAmount = stakeDetails[2];
+          expect(stakedIdentifier).to.equal(identifier);
+      
+          console.log("Staked Amount (Wei):", stakedAmount.toString());
+          console.log("Staked Identifier:", stakedIdentifier.toString());
+          return true;
+
         }
     }
     catch(error) {

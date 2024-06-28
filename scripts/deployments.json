@@ -19,7 +19,7 @@
     "reverseRegistrar": "0x2b5A4e5493d4a54E717057B127cf0C000C876f9B"
   },
   "tld": {
-    "identifier": "2156872314279460983740771346842512756791041722039239507210140418041973459",
+    "identifier": "2156865105053418972725699986330115742905415721791054469176323386847063412",
     "tldBase": "0x0000000000000000000000000000000000000000",
     "referralComissions": [
       {
@@ -35,6 +35,6 @@
         "isValid": true
       }
     ],
-    "publicRegistrationStartTime": 1719553629
+    "publicRegistrationStartTime": 1719554913
   }
 }
