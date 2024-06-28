@@ -6,21 +6,22 @@ import fs from "fs";
 import path from "path";
 // import { getCurrentUnixTime } from "./utils"; // Assuming you have a function to get current time
 import Deployments from "./deployments.json";
-import { root, generateProof } from './merkleProof';
 
 
 const dotenv = require('dotenv').config();
 
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
 
-// const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
-// const providerUrl = process.env.AMOY_API_KEY;
+const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
+const providerUrl = process.env.BASE_SEPOLIA_API_KEY;
+// const CHAIN_ID = 80002;
 
 
 // for localhost
-const privateKey =
-  "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-const providerUrl = "https://127.0.0.1:8545";
+// const privateKey =
+//   "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+// const providerUrl = "https://127.0.0.1:8545";
+const CHAIN_ID = 84532; //localhost
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
@@ -35,8 +36,8 @@ async function main() {
     const [tldOwner] = await ethers.getSigners();
     console.log(tldOwner.address);
     console.log(wallet.address);
-    const tldName = "comic";
-    const identifier = calIdentifier(80002, wallet.address, tldName);
+    const tldName = "ttt";
+    const identifier = calIdentifier(CHAIN_ID, wallet.address, tldName);
 
     // STAKE ETH
     console.log("Staking ETH...");
@@ -92,19 +93,8 @@ async function stakeETH(
 
         // const setStakeLimit = await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
         // await setStakeLimit.wait();
-        const merkleProof = generateProof(tldName);
-        console.log(merkleProof);
 
-        if(merkleProof.length !==0 ){
-          console.log("TLD is already registered on the global registry.");
-          return false;
-        }
-        else if(! (await tldFactory.checkAvailability(tldName, merkleProof))){
-          console.log("TLD is already registered on MetaTLDs");
-          return false;
-        }
-        else{
-          const stakeTx = await tldFactory.stake(identifier, tldName, merkleProof, {
+          const stakeTx = await tldFactory.stake(identifier, tldName, {
           value: ethers.parseEther("0.001"),
           gasLimit: 300000,
           });
@@ -120,8 +110,6 @@ async function stakeETH(
           console.log("Staked Amount (Wei):", stakedAmount.toString());
           console.log("Staked Identifier:", stakedIdentifier.toString());
           return true;
-
-        }
     }
     catch(error) {
       console.log("error staking eth:", error);

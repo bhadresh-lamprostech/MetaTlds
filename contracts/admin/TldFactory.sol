@@ -18,13 +18,10 @@ import {IPlatformConfig} from "./IPlatformConfig.sol";
 import {IPreRegistrationCreator} from "../proxy/IPreRegistrationCreator.sol";
 import {PrepaidPlatformFee} from "../admin/PrepaidPlatformFee.sol";
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
-
 
 // TldFactory is a controller to create a new TLD.
 contract TldFactory is ITldFactory, TldAccessable, Initializable {
 
-    bytes32 public merkleRoot;
     /// Platform config contract address.
     address public platformConfig;
 
@@ -339,27 +336,23 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
 
     /****************  ETH STAKING FUNCTIONS    ***************** */
 
-    function stake(uint256 identifier, string calldata tld, bytes32[] memory proof) external payable {
+    function stake(uint256 identifier, string calldata tld) external payable {
         require(msg.value >= MINIMUM_STAKE, "Insufficient staking amount");
-        // require(proof.length > 0, "Proof cannot be empty");
-        require(checkAvailability(tld, proof), "TLD you're trying to register already exists");
+        require(checkAvailability(tld), "TLD you're trying to register already exists");
         identifiers[msg.sender] = identifier;
         stakes[msg.sender] += msg.value;
         emit Staked(msg.sender, msg.value);
     }
 
-    function checkAvailability(string calldata tld, bytes32[] memory proof) public view returns (bool) {
-        require(proof.length == 0, "TLD already exists...");
-        bytes32 leaf = keccak256(abi.encodePacked(tld));
+    function checkAvailability(string calldata tld) public view returns (bool) {
         bool isRegistered = false;
         for (uint i = 0; i < tldRegistered.length; i++) {
             if (keccak256(abi.encodePacked(tldRegistered[i])) == keccak256(abi.encodePacked(tld))) {
                 isRegistered = true;
                 break;
             }
-
         }
-        return !(MerkleProof.verify(proof, merkleRoot, leaf) || isRegistered );
+        return !isRegistered;
     }
 
     function getStakeDetails() external view returns (address owner, uint256 identifier, uint256 stakedAmount) {
@@ -380,20 +373,6 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     // Function to update the MINIMUM_STAKE amount
     function setStakeLimit(uint256 amount) onlyPlatformAdmin external {
         MINIMUM_STAKE = amount;
-    }
-
-    function stringToBytes32(string memory source) internal pure returns (bytes32 result) {
-        bytes memory tempEmptyStringTest = bytes(source);
-        if (tempEmptyStringTest.length == 0) {
-            return 0x0;
-        }
-        assembly {
-            result := mload(add(source, 32))
-        }
-    }
-
-    function updateMerkleRoot(string memory _merkleRoot) onlyPlatformAdmin external {
-        merkleRoot = stringToBytes32(_merkleRoot);
     }
 
     // Modifier to check if the user has staked the required amount

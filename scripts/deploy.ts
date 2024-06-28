@@ -5,10 +5,9 @@ import { Interface, keccak256 } from "ethers";
 import { getInitializerData } from "./utils";
 import fs from "fs";
 import path from "path";
-import root from "./merkleRoot.json";
 
-const CHAIN_ID = 80002;
-// const CHAIN_ID = 13337; // Localhost ChainId
+const CHAIN_ID = 84532;
+// const CHAIN_ID = 31337; // Localhost ChainId
 const ZERO_HASH =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
@@ -62,7 +61,7 @@ async function deployToolkit(
 ) {
   console.log("Deploying USD Oracle...");
   const usdOracleFactory = await ethers.getContractFactory("DummyOracle");
-  const usdOracle = await usdOracleFactory.deploy(toBigInt("150000000000"));
+  const usdOracle = await usdOracleFactory.deploy(toBigInt("8500000000"));
   await usdOracle.waitForDeployment();
   console.log(`USD Oracle deployed at: ${await usdOracle.getAddress()}`);
 
@@ -319,12 +318,6 @@ async function deployToolkit(
     );
   console.log(`TldFactory deployed at: ${await tldFactory.getAddress()}`);
 
-  try {
-    // Call the updateMerkleRoot function
-    const tx = await tldFactory.updateMerkleRoot(root.root);
-  } catch (error) {
-    console.error("Error updating Merkle root:", error);
-  }
 
   console.log("0");
   await sann

@@ -4657,8 +4657,8 @@
       ]
     },
     "C:\\Users\\Kaushal Desai\\OneDrive\\Desktop\\Blockchain\\Company Projects\\Base-domain\\MetaTlds\\contracts\\admin\\TldFactory.sol": {
-      "lastModificationDate": 1719551088931,
-      "contentHash": "add548384afc0679042454ad41f1d635",
+      "lastModificationDate": 1719579219375,
+      "contentHash": "218a591e3b7d3e2c92f599ed89b45ddc",
       "sourceName": "contracts/admin/TldFactory.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -4707,8 +4707,7 @@
         "./IPlatformConfig.sol",
         "../proxy/IPreRegistrationCreator.sol",
         "../admin/PrepaidPlatformFee.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"

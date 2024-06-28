@@ -20,7 +20,8 @@ const {
   ETHERSCAN_API_KEY,
   ARBSCAN_API_KEY,
   GNOSISSCAN_API_KEY,
-  AMOY_API_KEY
+  AMOY_API_KEY,
+  BASE_SEPOLIA_API_KEY
 } = process.env;
 const pvtKey = [
   "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
@@ -30,6 +31,12 @@ const pvtKey = [
 
 const config: HardhatUserConfig = {
   networks: {
+
+    base_sepolia : {
+      url: BASE_SEPOLIA_API_KEY,
+      chainId: 84532,
+      accounts: PRIVATE_KEYS ? PRIVATE_KEYS.split(',') : [],
+    },
     
     amoy: {
       url: AMOY_API_KEY,

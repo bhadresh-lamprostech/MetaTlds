@@ -1,26 +1,26 @@
 {
   "toolkit": {
-    "registry": "0x70bDA08DBe07363968e9EE53d899dFE48560605B",
-    "sann": "0xA56F946D6398Dd7d9D4D9B337Cf9E0F68982ca5B",
-    "registrar": "0x821f3361D454cc98b7555221A06Be563a7E2E0A6",
-    "usdOracle": "0xaca81583840B1bf2dDF6CDe824ada250C1936B4D",
-    "platformConfig": "0xddE78e6202518FF4936b5302cC2891ec180E8bFf",
-    "priceOracle": "0xaB7B4c595d3cE8C85e16DA86630f2fc223B05057",
-    "prepaidPlatformFee": "0x045857BDEAE7C1c7252d611eB24eB55564198b4C",
-    "giftCardBase": "0x5133BBdfCCa3Eb4F739D599ee4eC45cBCD0E16c5",
-    "giftCardVoucher": "0x71089Ba41e478702e1904692385Be3972B2cBf9e",
-    "giftCardLedger": "0x8F4ec854Dd12F1fe79500a1f53D0cbB30f9b6134",
-    "giftCardController": "0xC66AB83418C20A65C3f8e83B3d11c8C3a6097b6F",
-    "referralHub": "0xaC47e91215fb80462139756f43438402998E4A3a",
-    "baseCreator": "0x63fea6E447F120B8Faf85B53cdaD8348e645D80E",
-    "preRegistrationCreator": "0xdFdE6B33f13de2CA1A75A6F7169f50541B14f75b",
-    "tldFactory": "0xf090f16dEc8b6D24082Edd25B1C8D26f2bC86128",
-    "resolver": "0xaC9fCBA56E42d5960f813B9D0387F3D3bC003338",
-    "reverseRegistrar": "0x2b5A4e5493d4a54E717057B127cf0C000C876f9B"
+    "registry": "0x1b1BC3FDFb06Cc80d67790cbF2df563506972dd6",
+    "sann": "0x01c0a6266c89868418DF20e3c3d7C4939e7aCcEC",
+    "registrar": "0x4EF8A2cCc0336298cd4e8f6eF3C3FBd4E5C26326",
+    "usdOracle": "0x733E5B2a3020B2b39456Cc573FDB6A1D4e61feA6",
+    "platformConfig": "0x06125C0a106Cd2aBEC11Ca1Dc28804790A91325C",
+    "priceOracle": "0x4a33c09fc4dD088ea5ea5e640853aaaEa0c390fd",
+    "prepaidPlatformFee": "0x926eD22328a13CEEA14B2A3Fe68e2DFA512C58Dd",
+    "giftCardBase": "0x0Fdb64b12FAfaD19079E19A341dde95C8F8B652a",
+    "giftCardVoucher": "0xB42C2e955795c166a1635165922ABf31507aC1bB",
+    "giftCardLedger": "0x17F403Bb04a6E315A750310371a9E3EEf73b6a27",
+    "giftCardController": "0x23B2a8874Fcc3Faf8Ca73869f57Af447402AAB25",
+    "referralHub": "0x160567e5F1b1A960d325AB395748ba5A2597029F",
+    "baseCreator": "0x568ABafeCaB14144D63357D694d9c3155F6e8b3b",
+    "preRegistrationCreator": "0xf98D3Fe747e1bBEF23E0830caE6efc2C304fFDDE",
+    "tldFactory": "0x79bED8A36B5Bb2f57268242FE53a0D4F3aFbf573",
+    "resolver": "0xD49C49CCc236Cf9c4159E2211a7C45e89cA859d7",
+    "reverseRegistrar": "0xA81Bea5c48E619F5BF9252A78b24D97Da30FF13B"
   },
   "tld": {
-    "identifier": "2156865105053418972725699986330115742905415721791054469176323386847063412",
-    "tldBase": "0x0000000000000000000000000000000000000000",
+    "identifier": "2278993815007836466600209049043087038978750522895233020046262471601644919",
+    "tldBase": "0xd2DD964d06DB0D4293932615b36B13eF26Ee500c",
     "referralComissions": [
       {
         "minimumReferralCount": 1,
@@ -35,6 +35,6 @@
         "isValid": true
       }
     ],
-    "publicRegistrationStartTime": 1719554913
+    "publicRegistrationStartTime": 1719580644
   }
 }
