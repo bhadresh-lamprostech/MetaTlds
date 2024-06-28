@@ -11,6 +11,8 @@ const tlds = JSON.parse(fs.readFileSync(tldsFilePath, 'utf8'));
 const leaves = tlds.map(tld => Buffer.from(SHA256(tld).toString(), 'hex'));
 const merkleTree = new MerkleTree(leaves, SHA256);
 const root = merkleTree.getRoot().toString('hex');
+// console.log(merkleTree);
+fs.writeFileSync(path.join(__dirname, 'merkleTree.json'), JSON.stringify({ merkleTree }), 'utf8');
 
 // Function to generate proof for a given TLD
 function generateProof(tld) {

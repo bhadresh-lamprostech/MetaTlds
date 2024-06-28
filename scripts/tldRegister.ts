@@ -35,7 +35,7 @@ async function main() {
     const [tldOwner] = await ethers.getSigners();
     console.log(tldOwner.address);
     console.log(wallet.address);
-    const tldName = "inv";
+    const tldName = "ethics";
     const identifier = calIdentifier(80002, wallet.address, tldName);
 
     // STAKE ETH
@@ -93,8 +93,9 @@ async function stakeETH(
         // const setStakeLimit = await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
         // await setStakeLimit.wait();
         const merkleProof = generateProof(tldName);
-        if(merkleProof.length === 0 ){
-          
+        console.log(merkleProof);
+        if(merkleProof.length === 0 && await tldFactory.checkAvailability(tldName, merkleProof) ){
+      
             const stakeTx = await tldFactory.stake(identifier, tldName, merkleProof, {
             value: ethers.parseEther("0.001"),
             gasLimit: 300000,
@@ -102,15 +103,15 @@ async function stakeETH(
             const receipt = await stakeTx.wait();
             // console.log("Staking Tx Receipt", receipt);
           
-          // Verify staking details
-          const stakeDetails = await tldFactory.getStakeDetails();
-          const stakedIdentifier = stakeDetails[1];
-          const stakedAmount = stakeDetails[2];
-          expect(stakedIdentifier).to.equal(identifier);
-      
-          console.log("Staked Amount (Wei):", stakedAmount.toString());
-          console.log("Staked Identifier:", stakedIdentifier.toString());
-          return true;
+            // Verify staking details
+            const stakeDetails = await tldFactory.getStakeDetails();
+            const stakedIdentifier = stakeDetails[1];
+            const stakedAmount = stakeDetails[2];
+            expect(stakedIdentifier).to.equal(identifier);
+        
+            console.log("Staked Amount (Wei):", stakedAmount.toString());
+            console.log("Staked Identifier:", stakedIdentifier.toString());
+            return true;
         }
         else{
           console.log("TLD already exist...");

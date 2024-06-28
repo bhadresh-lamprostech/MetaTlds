@@ -342,13 +342,14 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     function stake(uint256 identifier, string calldata tld, bytes32[] memory proof) external payable {
         require(msg.value >= MINIMUM_STAKE, "Insufficient staking amount");
         // require(proof.length > 0, "Proof cannot be empty");
-        require(!checkAvailability(tld, proof), "TLD you're trying to register already exists");
+        require(checkAvailability(tld, proof), "TLD you're trying to register already exists");
         identifiers[msg.sender] = identifier;
         stakes[msg.sender] += msg.value;
         emit Staked(msg.sender, msg.value);
     }
 
     function checkAvailability(string calldata tld, bytes32[] memory proof) public view returns (bool) {
+        require(proof.length == 0, "TLD already exists...");
         bytes32 leaf = keccak256(abi.encodePacked(tld));
         bool isRegistered = false;
         for (uint i = 0; i < tldRegistered.length; i++) {
@@ -358,7 +359,7 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
             }
 
         }
-        return (MerkleProof.verify(proof, merkleRoot, leaf) || isRegistered );
+        return !(MerkleProof.verify(proof, merkleRoot, leaf) || isRegistered );
     }
 
     function getStakeDetails() external view returns (address owner, uint256 identifier, uint256 stakedAmount) {
