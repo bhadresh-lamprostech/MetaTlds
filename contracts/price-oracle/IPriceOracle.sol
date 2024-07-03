@@ -8,7 +8,7 @@ interface IPriceOracle {
         uint256 base;
         uint256 premium;
     }
-
+    
     function price(
         string calldata name,
         uint256 expires,

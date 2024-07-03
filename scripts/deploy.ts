@@ -29,7 +29,7 @@ async function main() {
       registry: await toolkit.registry.getAddress(),
       sann: await toolkit.sann.getAddress(),
       registrar: await toolkit.registrar.getAddress(),
-      usdOracle: await toolkit.usdOracle.getAddress(),
+      usdOracle: await toolkit.usdOracleAddress,
       platformConfig: await toolkit.platformConfig.getAddress(),
       priceOracle: await toolkit.priceOracle.getAddress(),
       prepaidPlatformFee: await toolkit.prepaidPlatformFee.getAddress(),
@@ -60,10 +60,10 @@ async function deployToolkit(
   feeRate: number
 ) {
   console.log("Deploying USD Oracle...");
-  const usdOracleFactory = await ethers.getContractFactory("DummyOracle");
-  const usdOracle = await usdOracleFactory.deploy(toBigInt("8500000000"));
-  await usdOracle.waitForDeployment();
-  console.log(`USD Oracle deployed at: ${await usdOracle.getAddress()}`);
+  const usdOracleAddress = "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1"; //BASE SEPOLIA CHAINLIN USD ORACLE CONTRACT ADDRESS
+  const usdOracle = await ethers.getContractAt("AggregatorV3Interface", usdOracleAddress);
+
+  console.log(`USD Oracle at: ${usdOracleAddress} `);
 
   const signer = await ethers.getSigners();
 
@@ -117,7 +117,7 @@ async function deployToolkit(
   const priceOracle = await priceOracleFactory.deploy(await sann.getAddress());
   await priceOracle.waitForDeployment();
   await priceOracle.connect(platformAdmin).initialize(
-    await usdOracle.getAddress(),
+    usdOracleAddress,
     "100000000000000000000000000", // start premium
     21 // total days
   );
@@ -377,7 +377,7 @@ async function deployToolkit(
     registry,
     sann,
     registrar,
-    usdOracle,
+    usdOracleAddress,
     platformConfig,
     priceOracle,
     prepaidPlatformFee,

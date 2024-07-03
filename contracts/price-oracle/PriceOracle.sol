@@ -6,8 +6,9 @@ import "../common/StringUtils.sol";
 import "./IPriceOracle.sol";
 import "../access/TldAccessable.sol";
 import "../admin/ISANN.sol";
-import "../common/AggregatorInterface.sol";
+// import "../common/AggregatorInterface.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract PriceOracle is IPriceOracle, TldAccessable, Initializable {
     using StringUtils for *;
@@ -21,14 +22,14 @@ contract PriceOracle is IPriceOracle, TldAccessable, Initializable {
     uint256 public endValue;
 
     // Oracle address
-    AggregatorInterface public usdOracle;
+    AggregatorV3Interface public usdOracle;
 
     constructor(
         ISANN _sann
     ) TldAccessable(_sann) {}
 
     function initialize(
-        AggregatorInterface _usdOracle,
+        AggregatorV3Interface _usdOracle,
         uint256 _startPremium,
         uint256 totalDays
     ) public initializer onlyPlatformAdmin {
@@ -36,7 +37,7 @@ contract PriceOracle is IPriceOracle, TldAccessable, Initializable {
         startPremium = _startPremium;
         endValue = _startPremium >> totalDays;
     }
-
+    
     /**
      * @dev To initialize the price model for a new TLD.
      *      Only can be called by TLD factory
@@ -158,7 +159,7 @@ contract PriceOracle is IPriceOracle, TldAccessable, Initializable {
     }
 
     function setUsdOracle(address _usdOracle) external onlyPlatformAdmin {
-        usdOracle = AggregatorInterface(_usdOracle);
+        usdOracle = AggregatorV3Interface(_usdOracle);
     }
 
     uint256 constant PRECISION = 1e18;

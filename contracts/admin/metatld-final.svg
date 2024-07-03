@@ -1,0 +1,534 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="756pt" height="1473pt" viewBox="0.00 0.00 756.35 1473.00">
+<g id="graph0" class="graph" transform="translate(4,1469) scale(1)" data-name="G">
+
+<polygon fill="#2e3e56" stroke="none" points="-4,4 -4,-1469 752.35,-1469 752.35,4 -4,4" style=""/>
+<g id="clust1" class="cluster" data-name="clusterTldFactory">
+
+<path fill="#445773" stroke="#445773" d="M20,-757C20,-757 706.37,-757 706.37,-757 712.37,-757 718.37,-763 718.37,-769 718.37,-769 718.37,-1308 718.37,-1308 718.37,-1314 712.37,-1320 706.37,-1320 706.37,-1320 20,-1320 20,-1320 14,-1320 8,-1314 8,-1308 8,-1308 8,-769 8,-769 8,-763 14,-757 20,-757" style=""/>
+<text text-anchor="middle" x="363.18" y="-1303.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">TldFactory</text>
+</g>
+<g id="clust2" class="cluster" data-name="clustersann">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M300.61,-456C300.61,-456 415.51,-456 415.51,-456 421.51,-456 427.51,-462 427.51,-468 427.51,-468 427.51,-737 427.51,-737 427.51,-743 421.51,-749 415.51,-749 415.51,-749 300.61,-749 300.61,-749 294.61,-749 288.61,-743 288.61,-737 288.61,-737 288.61,-468 288.61,-468 288.61,-462 294.61,-456 300.61,-456" style=""/>
+<text text-anchor="middle" x="358.06" y="-732.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">sann</text>
+</g>
+<g id="clust3" class="cluster" data-name="clusterIBaseCreator">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M325.98,-371C325.98,-371 391.14,-371 391.14,-371 397.14,-371 403.14,-377 403.14,-383 403.14,-383 403.14,-436 403.14,-436 403.14,-442 397.14,-448 391.14,-448 391.14,-448 325.98,-448 325.98,-448 319.98,-448 313.98,-442 313.98,-436 313.98,-436 313.98,-383 313.98,-383 313.98,-377 319.98,-371 325.98,-371" style=""/>
+<text text-anchor="middle" x="358.56" y="-431.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">IBaseCreator</text>
+</g>
+<g id="clust4" class="cluster" data-name="clusterIRegistrarController">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M529.77,-8C529.77,-8 710.11,-8 710.11,-8 716.11,-8 722.11,-14 722.11,-20 722.11,-20 722.11,-397 722.11,-397 722.11,-403 716.11,-409 710.11,-409 710.11,-409 529.77,-409 529.77,-409 523.77,-409 517.77,-403 517.77,-397 517.77,-397 517.77,-20 517.77,-20 517.77,-14 523.77,-8 529.77,-8" style=""/>
+<text text-anchor="middle" x="619.94" y="-392.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">IRegistrarController</text>
+</g>
+<g id="clust5" class="cluster" data-name="clusterIPreRegistrationCreator">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M557.86,-672C557.86,-672 683.02,-672 683.02,-672 689.02,-672 695.02,-678 695.02,-684 695.02,-684 695.02,-737 695.02,-737 695.02,-743 689.02,-749 683.02,-749 683.02,-749 557.86,-749 557.86,-749 551.86,-749 545.86,-743 545.86,-737 545.86,-737 545.86,-684 545.86,-684 545.86,-678 551.86,-672 557.86,-672" style=""/>
+<text text-anchor="middle" x="620.44" y="-732.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">IPreRegistrationCreator</text>
+</g>
+<g id="clust6" class="cluster" data-name="clusterGiftCardLedger">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M511.53,-587C511.53,-587 728.35,-587 728.35,-587 734.35,-587 740.35,-593 740.35,-599 740.35,-599 740.35,-652 740.35,-652 740.35,-658 734.35,-664 728.35,-664 728.35,-664 511.53,-664 511.53,-664 505.53,-664 499.53,-658 499.53,-652 499.53,-652 499.53,-599 499.53,-599 499.53,-593 505.53,-587 511.53,-587" style=""/>
+<text text-anchor="middle" x="619.94" y="-647.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">GiftCardLedger</text>
+</g>
+<g id="clust7" class="cluster" data-name="clusterGiftCardVoucher">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M519.58,-502C519.58,-502 720.3,-502 720.3,-502 726.3,-502 732.3,-508 732.3,-514 732.3,-514 732.3,-567 732.3,-567 732.3,-573 726.3,-579 720.3,-579 720.3,-579 519.58,-579 519.58,-579 513.58,-579 507.58,-573 507.58,-567 507.58,-567 507.58,-514 507.58,-514 507.58,-508 513.58,-502 519.58,-502" style=""/>
+<text text-anchor="middle" x="619.94" y="-562.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">GiftCardVoucher</text>
+</g>
+<g id="clust8" class="cluster" data-name="clusterReferralHub">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M539.4,-417C539.4,-417 700.48,-417 700.48,-417 706.48,-417 712.48,-423 712.48,-429 712.48,-429 712.48,-482 712.48,-482 712.48,-488 706.48,-494 700.48,-494 700.48,-494 539.4,-494 539.4,-494 533.4,-494 527.4,-488 527.4,-482 527.4,-482 527.4,-429 527.4,-429 527.4,-423 533.4,-417 539.4,-417" style=""/>
+<text text-anchor="middle" x="619.94" y="-477.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">ReferralHub</text>
+</g>
+<g id="clust9" class="cluster" data-name="cluster_01">
+
+<polygon fill="#2e3e56" stroke="black" points="39.29,-1328 39.29,-1457 393.06,-1457 393.06,-1328 39.29,-1328" style=""/>
+<text text-anchor="middle" x="216.18" y="-1440.4" font-family="Times,serif" font-size="14.00" style="">Legend</text>
+</g>
+<!-- TldFactory.&lt;Constructor&gt; -->
+<g id="node1" class="node" pointer-events="visible" data-name="TldFactory.&lt;Constructor&gt;">
+
+<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="112.29" cy="-1269" rx="67.55" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-1264.8" font-family="Times,serif" font-size="14.00" style="">&lt;Constructor&gt;</text>
+</g>
+<!-- TldFactory.initialize -->
+<g id="node2" class="node" pointer-events="visible" data-name="TldFactory.initialize">
+
+<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="112.29" cy="-1161" rx="44.64" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-1156.8" font-family="Times,serif" font-size="14.00" style="">initialize</text>
+</g>
+<!-- TldFactory.SetDefaultPriceOracle -->
+<g id="node17" class="node" pointer-events="visible" data-name="TldFactory.SetDefaultPriceOracle">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-1269" rx="97.81" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-1264.8" font-family="Times,serif" font-size="14.00" style="">SetDefaultPriceOracle</text>
+</g>
+<!-- TldFactory.initialize&#45;&gt;TldFactory.SetDefaultPriceOracle -->
+<g id="edge1" class="edge" data-name="TldFactory.initialize-&gt;TldFactory.SetDefaultPriceOracle">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M156.48,-1166.57C173.91,-1170.43 193.44,-1176.97 208.59,-1188 231.9,-1204.98 220.93,-1225.49 244.59,-1242 250.94,-1246.43 257.94,-1250.14 265.23,-1253.25" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="263.88,-1256.48 274.48,-1256.72 266.34,-1249.93 263.88,-1256.48" style=""/>
+</g>
+<!-- TldFactory.createDomainService -->
+<g id="node3" class="node" pointer-events="visible" data-name="TldFactory.createDomainService">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="112.29" cy="-1007" rx="94.3" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-1002.8" font-family="Times,serif" font-size="14.00" style="">createDomainService</text>
+</g>
+<!-- TldFactory._setPriceModel -->
+<g id="node4" class="node" pointer-events="visible" data-name="TldFactory._setPriceModel">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-1107" rx="71.79" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-1102.8" font-family="Times,serif" font-size="14.00" style="">_setPriceModel</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory._setPriceModel -->
+<g id="edge7" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory._setPriceModel">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M141.14,-1025.43C166.99,-1041.81 207.04,-1065.37 244.59,-1080 257.48,-1085.02 271.58,-1089.3 285.31,-1092.86" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="284.27,-1096.21 294.82,-1095.22 285.95,-1089.42 284.27,-1096.21" style=""/>
+</g>
+<!-- TldFactory._enableQualificationHook -->
+<g id="node5" class="node" pointer-events="visible" data-name="TldFactory._enableQualificationHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-1053" rx="113.44" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-1048.8" font-family="Times,serif" font-size="14.00" style="">_enableQualificationHook</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory._enableQualificationHook -->
+<g id="edge10" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory._enableQualificationHook">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M182.82,-1020.12C209.42,-1025.14 240.14,-1030.94 268.3,-1036.25" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="267.58,-1039.68 278.06,-1038.09 268.88,-1032.8 267.58,-1039.68" style=""/>
+</g>
+<!-- TldFactory._enablePreRegistration -->
+<g id="node6" class="node" pointer-events="visible" data-name="TldFactory._enablePreRegistration">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-999" rx="101.28" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-994.8" font-family="Times,serif" font-size="14.00" style="">_enablePreRegistration</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory._enablePreRegistration -->
+<g id="edge8" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory._enablePreRegistration">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M206.84,-1003.93C219,-1003.53 231.56,-1003.12 243.99,-1002.71" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="243.97,-1006.21 253.85,-1002.39 243.74,-999.22 243.97,-1006.21" style=""/>
+</g>
+<!-- TldFactory._enablePriceHook -->
+<g id="node7" class="node" pointer-events="visible" data-name="TldFactory._enablePriceHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-891" rx="82.23" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-886.8" font-family="Times,serif" font-size="14.00" style="">_enablePriceHook</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory._enablePriceHook -->
+<g id="edge9" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory._enablePriceHook">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M182.98,-994.13C192.15,-990.52 200.98,-985.91 208.59,-980 233.75,-960.45 219.03,-937.03 244.59,-918 252.57,-912.05 261.68,-907.4 271.18,-903.76" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="272.13,-907.13 280.49,-900.63 269.9,-900.49 272.13,-907.13" style=""/>
+</g>
+<!-- TldFactory._enableGiftCard -->
+<g id="node8" class="node" pointer-events="visible" data-name="TldFactory._enableGiftCard">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-945" rx="75.28" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-940.8" font-family="Times,serif" font-size="14.00" style="">_enableGiftCard</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory._enableGiftCard -->
+<g id="edge11" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory._enableGiftCard">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M170.08,-991.53C193.17,-985.33 220.12,-978.2 244.59,-972 258.89,-968.38 274.25,-964.61 288.88,-961.08" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="289.65,-964.49 298.56,-958.75 288.02,-957.69 289.65,-964.49" style=""/>
+</g>
+<!-- TldFactory._enableReferral -->
+<g id="node9" class="node" pointer-events="visible" data-name="TldFactory._enableReferral">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-837" rx="72.89" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-832.8" font-family="Times,serif" font-size="14.00" style="">_enableReferral</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory._enableReferral -->
+<g id="edge12" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory._enableReferral">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M186.2,-994.78C194.46,-991.06 202.19,-986.24 208.59,-980 247.23,-942.31 205.19,-900.9 244.59,-864 253.09,-856.04 263.52,-850.29 274.56,-846.18" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="275.36,-849.6 283.83,-843.24 273.24,-842.92 275.36,-849.6" style=""/>
+</g>
+<!-- TldFactory.NewDomainService -->
+<g id="node18" class="node" pointer-events="visible" data-name="TldFactory.NewDomainService">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-1161" rx="89.18" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-1156.8" font-family="Times,serif" font-size="14.00" style="">NewDomainService</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;TldFactory.NewDomainService -->
+<g id="edge14" class="edge" data-name="TldFactory.createDomainService-&gt;TldFactory.NewDomainService">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M141.98,-1025.26C162.02,-1038.87 188.65,-1058.7 208.59,-1080 228.3,-1101.05 220.93,-1117.49 244.59,-1134 251.92,-1139.12 260.1,-1143.27 268.62,-1146.64" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="267.38,-1149.91 277.97,-1149.9 269.68,-1143.3 267.38,-1149.91" style=""/>
+</g>
+<!-- sann.tldIdentifier -->
+<g id="node23" class="node" pointer-events="visible" data-name="sann.tldIdentifier">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-698" rx="57.31" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-693.8" font-family="Times,serif" font-size="14.00" style="">tldIdentifier</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;sann.tldIdentifier -->
+<g id="edge2" class="edge" data-name="TldFactory.createDomainService-&gt;sann.tldIdentifier">
+
+<path fill="none" stroke="white" stroke-width="2" d="M188.01,-995.18C195.77,-991.38 202.88,-986.43 208.59,-980 276.4,-903.61 183.86,-835.14 244.59,-753 257.92,-734.97 278.77,-722.54 298.92,-714.12" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="300.06,-717.43 308.14,-710.59 297.55,-710.9 300.06,-717.43" style=""/>
+</g>
+<!-- sann.registry -->
+<g id="node24" class="node" pointer-events="visible" data-name="sann.registry">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-644" rx="40.57" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-639.8" font-family="Times,serif" font-size="14.00" style="">registry</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;sann.registry -->
+<g id="edge4" class="edge" data-name="TldFactory.createDomainService-&gt;sann.registry">
+
+<path fill="none" stroke="white" stroke-width="2" d="M188.27,-995.4C195.98,-991.57 203.01,-986.55 208.59,-980 298.22,-874.73 152.84,-774.44 244.59,-671 259.21,-654.52 281.96,-647.2 303.18,-644.23" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="303.52,-647.71 313.1,-643.2 302.8,-640.75 303.52,-647.71" style=""/>
+</g>
+<!-- sann.registerTld -->
+<g id="node25" class="node" pointer-events="visible" data-name="sann.registerTld">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-590" rx="53.31" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-585.8" font-family="Times,serif" font-size="14.00" style="">registerTld</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;sann.registerTld -->
+<g id="edge5" class="edge" data-name="TldFactory.createDomainService-&gt;sann.registerTld">
+
+<path fill="none" stroke="white" stroke-width="2" d="M188.38,-995.5C196.07,-991.64 203.07,-986.59 208.59,-980 312.63,-855.66 138.05,-739.2 244.59,-617 256.32,-603.54 273.47,-596.17 290.86,-592.29" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="291.28,-595.77 300.51,-590.57 290.06,-588.88 291.28,-595.77" style=""/>
+</g>
+<!-- sann.setTldOwner -->
+<g id="node26" class="node" pointer-events="visible" data-name="sann.setTldOwner">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-536" rx="61.41" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-531.8" font-family="Times,serif" font-size="14.00" style="">setTldOwner</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;sann.setTldOwner -->
+<g id="edge13" class="edge" data-name="TldFactory.createDomainService-&gt;sann.setTldOwner">
+
+<path fill="none" stroke="white" stroke-width="2" d="M188.93,-995.33C196.42,-991.49 203.22,-986.5 208.59,-980 267.82,-908.29 183.91,-633.5 244.59,-563 254.51,-551.47 268.42,-544.39 283.08,-540.15" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="283.62,-543.62 292.55,-537.92 282.02,-536.81 283.62,-543.62" style=""/>
+</g>
+<!-- sann.chainId -->
+<g id="node27" class="node" pointer-events="visible" data-name="sann.chainId">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-482" rx="39.99" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-477.8" font-family="Times,serif" font-size="14.00" style="">chainId</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;sann.chainId -->
+<g id="edge15" class="edge" data-name="TldFactory.createDomainService-&gt;sann.chainId">
+
+<path fill="none" stroke="white" stroke-width="2" d="M188.99,-995.38C196.47,-991.54 203.25,-986.52 208.59,-980 275.04,-898.74 176.5,-588.9 244.59,-509 259.16,-491.9 282.49,-484.59 304.13,-481.78" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="304.3,-485.28 313.93,-480.86 303.65,-478.31 304.3,-485.28" style=""/>
+</g>
+<!-- IBaseCreator.create -->
+<g id="node28" class="node" pointer-events="visible" data-name="IBaseCreator.create">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-397" rx="34.16" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-392.8" font-family="Times,serif" font-size="14.00" style="">create</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;IBaseCreator.create -->
+<g id="edge3" class="edge" data-name="TldFactory.createDomainService-&gt;IBaseCreator.create">
+
+<path fill="none" stroke="white" stroke-width="2" d="M189.04,-995.43C196.51,-991.57 203.28,-986.54 208.59,-980 282.66,-888.66 178.96,-549.59 244.59,-452 260.08,-428.96 288.12,-415.22 312.32,-407.23" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="313.07,-410.66 321.64,-404.44 311.05,-403.96 313.07,-410.66" style=""/>
+</g>
+<!-- IRegistrarController.setTldConfigs -->
+<g id="node29" class="node" pointer-events="visible" data-name="IRegistrarController.setTldConfigs">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-34" rx="65.52" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-29.8" font-family="Times,serif" font-size="14.00" style="">setTldConfigs</text>
+</g>
+<!-- TldFactory.createDomainService&#45;&gt;IRegistrarController.setTldConfigs -->
+<g id="edge6" class="edge" data-name="TldFactory.createDomainService-&gt;IRegistrarController.setTldConfigs">
+
+<path fill="none" stroke="white" stroke-width="2" d="M189.1,-995.47C196.56,-991.61 203.31,-986.57 208.59,-980 251.31,-926.81 219.49,-430.45 244.59,-367 309.69,-202.39 348.55,-153.41 499.53,-61 512.98,-52.77 528.66,-47.04 544.14,-43.06" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="544.57,-46.55 553.53,-40.9 543,-39.73 544.57,-46.55" style=""/>
+</g>
+<!-- TldFactory.IPriceOracle -->
+<g id="node19" class="node" pointer-events="visible" data-name="TldFactory.IPriceOracle">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-1107" rx="59.65" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-1102.8" font-family="Times,serif" font-size="14.00" style="">IPriceOracle</text>
+</g>
+<!-- TldFactory._setPriceModel&#45;&gt;TldFactory.IPriceOracle -->
+<g id="edge16" class="edge" data-name="TldFactory._setPriceModel-&gt;TldFactory.IPriceOracle">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M427.68,-1100.97C465.08,-1100.02 511.27,-1100.01 548.89,-1100.93" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="548.68,-1104.43 558.78,-1101.21 548.88,-1097.43 548.68,-1104.43" style=""/>
+</g>
+<!-- TldFactory._setPriceModel&#45;&gt;TldFactory.IPriceOracle -->
+<g id="edge17" class="edge" data-name="TldFactory._setPriceModel-&gt;TldFactory.IPriceOracle">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M427.68,-1113.03C465.08,-1113.98 511.27,-1113.99 548.89,-1113.07" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="548.88,-1116.57 558.78,-1112.79 548.68,-1109.57 548.88,-1116.57" style=""/>
+</g>
+<!-- TldFactory.PreRegistrationState -->
+<g id="node20" class="node" pointer-events="visible" data-name="TldFactory.PreRegistrationState">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-1026" rx="90.35" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-1021.8" font-family="Times,serif" font-size="14.00" style="">PreRegistrationState</text>
+</g>
+<!-- TldFactory._enableQualificationHook&#45;&gt;TldFactory.PreRegistrationState -->
+<g id="edge18" class="edge" data-name="TldFactory._enableQualificationHook-&gt;TldFactory.PreRegistrationState">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M436.33,-1038.74C461.4,-1035.61 489.63,-1032.55 516.25,-1030.05" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="516.52,-1033.54 526.16,-1029.15 515.88,-1026.57 516.52,-1033.54" style=""/>
+</g>
+<!-- TldFactory._enableQualificationHook&#45;&gt;TldFactory.PreRegistrationState -->
+<g id="edge19" class="edge" data-name="TldFactory._enableQualificationHook-&gt;TldFactory.PreRegistrationState">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M469.27,-1048.23C492.63,-1045.97 516.86,-1043.32 538.85,-1040.61" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="539.03,-1044.11 548.51,-1039.39 538.15,-1037.17 539.03,-1044.11" style=""/>
+</g>
+<!-- IRegistrarController.setQualificationHook -->
+<g id="node30" class="node" pointer-events="visible" data-name="IRegistrarController.setQualificationHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-358" rx="94.34" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-353.8" font-family="Times,serif" font-size="14.00" style="">setQualificationHook</text>
+</g>
+<!-- TldFactory._enableQualificationHook&#45;&gt;IRegistrarController.setQualificationHook -->
+<g id="edge20" class="edge" data-name="TldFactory._enableQualificationHook-&gt;IRegistrarController.setQualificationHook">
+
+<path fill="none" stroke="white" stroke-width="2" d="M451.66,-1041.86C459.21,-1037.84 466.03,-1032.66 471.53,-1026 514.95,-973.43 461.46,-469.56 499.53,-413 510.3,-397 526.97,-385.57 544.47,-377.44" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="545.7,-380.72 553.56,-373.61 542.98,-374.27 545.7,-380.72" style=""/>
+</g>
+<!-- TldFactory._enablePreRegistration&#45;&gt;TldFactory.PreRegistrationState -->
+<g id="edge22" class="edge" data-name="TldFactory._enablePreRegistration-&gt;TldFactory.PreRegistrationState">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M448.13,-1008.25C472.78,-1010.82 499.62,-1013.6 524.56,-1016.19" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="524.09,-1019.66 534.39,-1017.22 524.81,-1012.7 524.09,-1019.66" style=""/>
+</g>
+<!-- IPreRegistrationCreator.create -->
+<g id="node36" class="node" pointer-events="visible" data-name="IPreRegistrationCreator.create">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-698" rx="34.16" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-693.8" font-family="Times,serif" font-size="14.00" style="">create</text>
+</g>
+<!-- TldFactory._enablePreRegistration&#45;&gt;IPreRegistrationCreator.create -->
+<g id="edge21" class="edge" data-name="TldFactory._enablePreRegistration-&gt;IPreRegistrationCreator.create">
+
+<path fill="none" stroke="white" stroke-width="2" d="M447.04,-989.33C456.28,-985.17 464.76,-979.55 471.53,-972 537.05,-898.96 441.47,-832.1 499.53,-753 517.23,-728.89 548.1,-715.05 574.02,-707.28" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="574.62,-710.75 583.35,-704.74 572.78,-703.99 574.62,-710.75" style=""/>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;TldFactory.IPriceOracle -->
+<g id="edge25" class="edge" data-name="TldFactory._enablePriceHook-&gt;TldFactory.IPriceOracle">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M436.85,-897.53C449.82,-901.79 462.1,-908.27 471.53,-918 514.18,-962 461.23,-1005.17 499.53,-1053 514.16,-1071.27 536.32,-1083.58 557.59,-1091.76" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="556.16,-1094.97 566.75,-1095 558.49,-1088.37 556.16,-1094.97" style=""/>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;TldFactory.PreRegistrationState -->
+<g id="edge23" class="edge" data-name="TldFactory._enablePriceHook-&gt;TldFactory.PreRegistrationState">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M425.66,-902.38C441.12,-906.27 457.23,-911.37 471.53,-918 516.4,-938.79 561.27,-974.3 589.52,-998.9" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="587.06,-1001.4 596.87,-1005.41 591.71,-996.16 587.06,-1001.4" style=""/>
+</g>
+<!-- TldFactory.IPlatformConfig -->
+<g id="node21" class="node" pointer-events="visible" data-name="TldFactory.IPlatformConfig">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-891" rx="74.74" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-886.8" font-family="Times,serif" font-size="14.00" style="">IPlatformConfig</text>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;TldFactory.IPlatformConfig -->
+<g id="edge24" class="edge" data-name="TldFactory._enablePriceHook-&gt;TldFactory.IPlatformConfig">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M441.65,-891C470.26,-891 502.42,-891 531.42,-891" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="531.03,-894.5 541.03,-891 531.03,-887.5 531.03,-894.5" style=""/>
+</g>
+<!-- IRegistrarController.setPriceHook -->
+<g id="node31" class="node" pointer-events="visible" data-name="IRegistrarController.setPriceHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-250" rx="63.13" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-245.8" font-family="Times,serif" font-size="14.00" style="">setPriceHook</text>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;IRegistrarController.setPriceHook -->
+<g id="edge26" class="edge" data-name="TldFactory._enablePriceHook-&gt;IRegistrarController.setPriceHook">
+
+<path fill="none" stroke="white" stroke-width="2" d="M438.14,-885.63C450.98,-881.25 462.89,-874.44 471.53,-864 513.17,-813.7 457.56,-327.02 499.53,-277 510.47,-263.96 526.25,-256.44 542.78,-252.25" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="543.42,-255.69 552.52,-250.27 542.03,-248.83 543.42,-255.69" style=""/>
+</g>
+<!-- IRegistrarController.setRenewPriceHook -->
+<g id="node32" class="node" pointer-events="visible" data-name="IRegistrarController.setRenewPriceHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-196" rx="89.76" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-191.8" font-family="Times,serif" font-size="14.00" style="">setRenewPriceHook</text>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;IRegistrarController.setRenewPriceHook -->
+<g id="edge27" class="edge" data-name="TldFactory._enablePriceHook-&gt;IRegistrarController.setRenewPriceHook">
+
+<path fill="none" stroke="white" stroke-width="2" d="M438.46,-885.56C451.19,-881.18 462.97,-874.38 471.53,-864 516.88,-808.99 453.82,-277.71 499.53,-223 505.37,-216.02 512.59,-210.61 520.58,-206.46" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="521.74,-209.77 529.53,-202.58 518.96,-203.34 521.74,-209.77" style=""/>
+</g>
+<!-- IRegistrarController.setPointHook -->
+<g id="node33" class="node" pointer-events="visible" data-name="IRegistrarController.setPointHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-142" rx="63.73" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-137.8" font-family="Times,serif" font-size="14.00" style="">setPointHook</text>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;IRegistrarController.setPointHook -->
+<g id="edge28" class="edge" data-name="TldFactory._enablePriceHook-&gt;IRegistrarController.setPointHook">
+
+<path fill="none" stroke="white" stroke-width="2" d="M438.49,-885.58C451.22,-881.2 462.99,-874.4 471.53,-864 520.59,-804.28 450.08,-228.39 499.53,-169 510.32,-156.05 525.87,-148.53 542.21,-144.32" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="542.75,-147.79 551.83,-142.33 541.33,-140.93 542.75,-147.79" style=""/>
+</g>
+<!-- IRegistrarController.setRenewPointHook -->
+<g id="node34" class="node" pointer-events="visible" data-name="IRegistrarController.setRenewPointHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-304" rx="90.37" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-299.8" font-family="Times,serif" font-size="14.00" style="">setRenewPointHook</text>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;IRegistrarController.setRenewPointHook -->
+<g id="edge29" class="edge" data-name="TldFactory._enablePriceHook-&gt;IRegistrarController.setRenewPointHook">
+
+<path fill="none" stroke="white" stroke-width="2" d="M438.1,-885.59C450.95,-881.22 462.86,-874.42 471.53,-864 547.38,-772.81 423.08,-421.68 499.53,-331 505.28,-324.18 512.36,-318.86 520.18,-314.75" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="521.55,-317.97 529.31,-310.76 518.75,-311.56 521.55,-317.97" style=""/>
+</g>
+<!-- GiftCardLedger.addTldGiftCardController -->
+<g id="node37" class="node" pointer-events="visible" data-name="GiftCardLedger.addTldGiftCardController">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-613" rx="112.32" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-608.8" font-family="Times,serif" font-size="14.00" style="">addTldGiftCardController</text>
+</g>
+<!-- TldFactory._enablePriceHook&#45;&gt;GiftCardLedger.addTldGiftCardController -->
+<g id="edge30" class="edge" data-name="TldFactory._enablePriceHook-&gt;GiftCardLedger.addTldGiftCardController">
+
+<path fill="none" stroke="white" stroke-width="2" d="M437.35,-884.94C450.27,-880.64 462.41,-874.02 471.53,-864 530.77,-798.93 446.94,-738.55 499.53,-668 510.61,-653.13 526.69,-642.16 543.47,-634.11" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="544.63,-637.43 552.38,-630.21 541.82,-631.02 544.63,-637.43" style=""/>
+</g>
+<!-- GiftCardVoucher.addCustomizedVoucher -->
+<g id="node38" class="node" pointer-events="visible" data-name="GiftCardVoucher.addCustomizedVoucher">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-528" rx="104.22" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-523.8" font-family="Times,serif" font-size="14.00" style="">addCustomizedVoucher</text>
+</g>
+<!-- TldFactory._enableGiftCard&#45;&gt;GiftCardVoucher.addCustomizedVoucher -->
+<g id="edge31" class="edge" data-name="TldFactory._enableGiftCard-&gt;GiftCardVoucher.addCustomizedVoucher">
+
+<path fill="none" stroke="white" stroke-width="2" d="M432.94,-940.9C447.64,-936.67 461.59,-929.58 471.53,-918 520.19,-861.31 456.66,-644.18 499.53,-583 510.28,-567.66 526.41,-556.51 543.36,-548.43" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="544.61,-551.7 552.4,-544.51 541.83,-545.28 544.61,-551.7" style=""/>
+</g>
+<!-- IRegistrarController.setRewardHook -->
+<g id="node35" class="node" pointer-events="visible" data-name="IRegistrarController.setRewardHook">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-88" rx="73.01" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-83.8" font-family="Times,serif" font-size="14.00" style="">setRewardHook</text>
+</g>
+<!-- TldFactory._enableReferral&#45;&gt;IRegistrarController.setRewardHook -->
+<g id="edge33" class="edge" data-name="TldFactory._enableReferral-&gt;IRegistrarController.setRewardHook">
+
+<path fill="none" stroke="white" stroke-width="2" d="M431.28,-833.79C446.71,-829.61 461.4,-822.34 471.53,-810 520.59,-750.28 450.08,-174.39 499.53,-115 508.38,-104.37 520.45,-97.4 533.53,-92.92" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="534.17,-96.37 542.84,-90.29 532.27,-89.63 534.17,-96.37" style=""/>
+</g>
+<!-- ReferralHub.setComissionChart -->
+<g id="node39" class="node" pointer-events="visible" data-name="ReferralHub.setComissionChart">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="619.94" cy="-443" rx="84.58" ry="18" style=""/>
+<text text-anchor="middle" x="619.94" y="-438.8" font-family="Times,serif" font-size="14.00" style="">setComissionChart</text>
+</g>
+<!-- TldFactory._enableReferral&#45;&gt;ReferralHub.setComissionChart -->
+<g id="edge32" class="edge" data-name="TldFactory._enableReferral-&gt;ReferralHub.setComissionChart">
+
+<path fill="none" stroke="white" stroke-width="2" d="M430.85,-833.42C446.3,-829.26 461.1,-822.08 471.53,-810 517.03,-757.32 459.41,-554.88 499.53,-498 511.13,-481.55 528.91,-469.91 547.23,-461.71" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="548.54,-464.96 556.49,-457.95 545.91,-458.48 548.54,-464.96" style=""/>
+</g>
+<!-- TldFactory.setDefaultPriceOracle -->
+<g id="node10" class="node" pointer-events="visible" data-name="TldFactory.setDefaultPriceOracle">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="112.29" cy="-1215" rx="96.09" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-1210.8" font-family="Times,serif" font-size="14.00" style="">setDefaultPriceOracle</text>
+</g>
+<!-- TldFactory.setDefaultPriceOracle&#45;&gt;TldFactory.SetDefaultPriceOracle -->
+<g id="edge34" class="edge" data-name="TldFactory.setDefaultPriceOracle-&gt;TldFactory.SetDefaultPriceOracle">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M177.98,-1229.33C208.98,-1236.2 246.38,-1244.48 278.96,-1251.7" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="278.17,-1255.11 288.69,-1253.86 279.69,-1248.28 278.17,-1255.11" style=""/>
+</g>
+<!-- TldFactory.stake -->
+<g id="node11" class="node" pointer-events="visible" data-name="TldFactory.stake">
+
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="112.29" cy="-1107" rx="30.76" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-1102.8" font-family="Times,serif" font-size="14.00" style="">stake</text>
+</g>
+<!-- TldFactory.checkAvailability -->
+<g id="node12" class="node" pointer-events="visible" data-name="TldFactory.checkAvailability">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-1215" rx="79.86" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-1210.8" font-family="Times,serif" font-size="14.00" style="">checkAvailability</text>
+</g>
+<!-- TldFactory.stake&#45;&gt;TldFactory.checkAvailability -->
+<g id="edge35" class="edge" data-name="TldFactory.stake-&gt;TldFactory.checkAvailability">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M144.02,-1110.16C163.97,-1113.47 189.68,-1120.23 208.59,-1134 231.9,-1150.98 220.93,-1171.49 244.59,-1188 253.29,-1194.07 263.19,-1198.79 273.42,-1202.45" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="272.06,-1205.69 282.65,-1205.36 274.17,-1199.01 272.06,-1205.69" style=""/>
+</g>
+<!-- TldFactory.getStakeDetails -->
+<g id="node13" class="node" pointer-events="visible" data-name="TldFactory.getStakeDetails">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="112.29" cy="-953" rx="71.78" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-948.8" font-family="Times,serif" font-size="14.00" style="">getStakeDetails</text>
+</g>
+<!-- TldFactory.unStake -->
+<g id="node14" class="node" pointer-events="visible" data-name="TldFactory.unStake">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="112.29" cy="-899" rx="42.3" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-894.8" font-family="Times,serif" font-size="14.00" style="">unStake</text>
+</g>
+<!-- TldFactory.payable -->
+<g id="node22" class="node" pointer-events="visible" data-name="TldFactory.payable">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="358.06" cy="-783" rx="41.13" ry="18" style=""/>
+<text text-anchor="middle" x="358.06" y="-778.8" font-family="Times,serif" font-size="14.00" style="">payable</text>
+</g>
+<!-- TldFactory.unStake&#45;&gt;TldFactory.payable -->
+<g id="edge36" class="edge" data-name="TldFactory.unStake-&gt;TldFactory.payable">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M154.44,-894.39C172.52,-890.69 193.11,-884.03 208.59,-872 233.75,-852.45 219.03,-829.03 244.59,-810 261.37,-797.5 283.11,-790.71 303.01,-787.04" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="303.41,-790.52 312.75,-785.52 302.33,-783.6 303.41,-790.52" style=""/>
+</g>
+<!-- TldFactory.setStakeLimit -->
+<g id="node15" class="node" pointer-events="visible" data-name="TldFactory.setStakeLimit">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="112.29" cy="-845" rx="64.86" ry="18" style=""/>
+<text text-anchor="middle" x="112.29" y="-840.8" font-family="Times,serif" font-size="14.00" style="">setStakeLimit</text>
+</g>
+<!-- TldFactory.hasStaked -->
+<g id="node16" class="node" pointer-events="visible" data-name="TldFactory.hasStaked">
+
+<polygon fill="#edad56" stroke="#1bc6a6" stroke-width="3" points="166.46,-779.54 166.46,-794.46 134.73,-805 89.86,-805 58.13,-794.46 58.13,-779.54 89.86,-769 134.73,-769 166.46,-779.54" style=""/>
+<polygon fill="none" stroke="#1bc6a6" stroke-width="3" points="170.45,-776.66 170.45,-797.34 135.37,-809 89.21,-809 54.14,-797.34 54.14,-776.66 89.21,-765 135.37,-765 170.45,-776.66" style=""/>
+<text text-anchor="middle" x="112.29" y="-782.8" font-family="Times,serif" font-size="14.00" style="">hasStaked</text>
+</g>
+<!-- key -->
+<g id="node40" class="node" pointer-events="visible" data-name="key">
+
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="177.29,-1424 47.29,-1424 47.29,-1336 177.29,-1336 177.29,-1424" style=""/>
+<text text-anchor="start" x="96.93" y="-1405.4" font-family="Times,serif" font-size="14.00" style="">Internal Call</text>
+<text text-anchor="start" x="93.04" y="-1385.4" font-family="Times,serif" font-size="14.00" style="">External Call</text>
+<text text-anchor="start" x="70.5" y="-1365.4" font-family="Times,serif" font-size="14.00" style="">Defined Contract</text>
+<text text-anchor="start" x="56.9" y="-1345.4" font-family="Times,serif" font-size="14.00" style="">Undefined Contract</text>
+</g>
+<!-- key2 -->
+<g id="node41" class="node" pointer-events="visible" data-name="key2">
+
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="385.06,-1424 331.06,-1424 331.06,-1336 385.06,-1336 385.06,-1424" style=""/>
+<text text-anchor="start" x="348.06" y="-1405.4" font-family="Times,serif" font-size="14.00" style="">   </text>
+<text text-anchor="start" x="348.06" y="-1385.4" font-family="Times,serif" font-size="14.00" style="">   </text>
+<polygon fill="#445773" stroke="none" points="346.06,-1360 346.06,-1380 371.06,-1380 371.06,-1360 346.06,-1360" style=""/>
+<text text-anchor="start" x="348.06" y="-1365.4" font-family="Times,serif" font-size="14.00" style="">   </text>
+<polygon fill="none" stroke="#e8726d" points="348.06,-1342 348.06,-1358 369.06,-1358 369.06,-1342 348.06,-1342" style=""/>
+</g>
+<!-- key&#45;&gt;key2 -->
+<g id="edge37" class="edge" data-name="key-&gt;key2">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M170.29,-1410C243.57,-1410 265,-1410 332.4,-1410" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="332.03,-1413.5 342.03,-1410 332.03,-1406.5 332.03,-1413.5" style=""/>
+</g>
+<!-- key&#45;&gt;key2 -->
+<g id="edge38" class="edge" data-name="key-&gt;key2">
+
+<path fill="none" stroke="white" stroke-width="2" d="M170.29,-1390C243.57,-1390 265,-1390 332.4,-1390" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="332.03,-1393.5 342.03,-1390 332.03,-1386.5 332.03,-1393.5" style=""/>
+</g>
+</g>
+</svg>

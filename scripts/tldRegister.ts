@@ -14,14 +14,14 @@ const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
 
 const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
 const providerUrl = process.env.BASE_SEPOLIA_API_KEY;
-// const CHAIN_ID = 80002;
+const CHAIN_ID = 84532; 
 
 
 // for localhost
 // const privateKey =
-//   "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-// const providerUrl = "https://127.0.0.1:8545";
-const CHAIN_ID = 84532; //localhost
+// "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+// const providerUrl = "http://127.0.0.1:8545";
+// const CHAIN_ID = 31337;
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
@@ -36,7 +36,7 @@ async function main() {
     const [tldOwner] = await ethers.getSigners();
     console.log(tldOwner.address);
     console.log(wallet.address);
-    const tldName = "ttt";
+    const tldName = "coay";
     const identifier = calIdentifier(CHAIN_ID, wallet.address, tldName);
 
     // STAKE ETH
@@ -147,25 +147,28 @@ async function registerTLD(
         isValid: true,
       },
     ];
-
+  
+    // Set the public registration start time to 2 minutes from now
     const publicRegistrationStartTime = now + 120;
+  
     const initData = {
       config: {
         minDomainLength: 3,
         maxDomainLength: 10,
-        minRegistrationDuration: 2592000,
-        minRenewDuration: 2592000,
+        minRegistrationDuration: 31556952,
+        minRenewDuration: 31556952,
         mintCap: 0,
       },
       letters: [3, 4, 5],
       prices: [20597680029427, 5070198161089, 158443692534],
+
       enableGiftCard: true,
       giftCardTokenIds: [],
       giftCardPrices: [],
       enableReferral: true,
       referralLevels: [1, 2],
       referralComissions: referralComissions,
-      enablePreRegistration: false,
+      enablePreRegistration: false, // Disable pre-registration
       preRegiConfig: {
         enableAuction: false,
         auctionStartTime: 0,
@@ -176,13 +179,12 @@ async function registerTLD(
         enableFcfs: false,
         fcfsStartTime: 0,
         fcfsEndTime: 0,
-      },
-      preRegiDiscountRateBps: [],
+      }, // Empty pre-registration configuration
+      preRegiDiscountRateBps: [], // Empty pre-registration discount rates
       publicRegistrationStartTime: publicRegistrationStartTime,
       publicRegistrationPaused: false,
-      baseUri: "https://gateway.lighthouse.storage/ipfs/",
+      baseUri: "https://space.id/metadata",
     };
-
     // try {
     //   const tx = await tldFactory.createDomainService(tldName, tldOwner.address, initData);
     //   var receipt = await tx.wait();

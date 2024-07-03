@@ -18,7 +18,6 @@ import {IPlatformConfig} from "./IPlatformConfig.sol";
 import {IPreRegistrationCreator} from "../proxy/IPreRegistrationCreator.sol";
 import {PrepaidPlatformFee} from "../admin/PrepaidPlatformFee.sol";
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
 // TldFactory is a controller to create a new TLD.
 contract TldFactory is ITldFactory, TldAccessable, Initializable {
 
@@ -27,7 +26,7 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
 
     /// Name NFT contract (ERC721) factory contract address.
     IBaseCreator public baseCreator;
-
+    
     /// default price model contract address.
     address public defaultPriceOracle;
 

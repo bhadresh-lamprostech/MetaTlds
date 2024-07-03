@@ -95,7 +95,7 @@ contract MetaTldsRegistry is IMetaTldsRegistry {
         emit NewOwner(_node, _label, _owner);
         return subnode;
     }
-
+    
     /**
      * @dev Sets the resolver address for the specified node.
      * @param _node The node to update.

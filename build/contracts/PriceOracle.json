@@ -120,7 +120,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract AggregatorInterface",
+        "internalType": "contract AggregatorV3Interface",
         "name": "_usdOracle",
         "type": "address"
       },
@@ -328,7 +328,7 @@
     "name": "usdOracle",
     "outputs": [
       {
-        "internalType": "contract AggregatorInterface",
+        "internalType": "contract AggregatorV3Interface",
         "name": "",
         "type": "address"
       }

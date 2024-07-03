@@ -2,7 +2,6 @@
     "name": "metatlds-toolkit-contracts",
     "version": "1.0.0",
     "description": "toolkit contracts for issuing customized domain name service",
-  
     "license": "MIT",
     "author": {
         "name": "Bhadresh",
@@ -28,6 +27,7 @@
         "js-sha3": "0.8.0"
     },
     "dependencies": {
+        "@chainlink/contracts": "^1.1.1",
         "@openzeppelin/contracts": "^4.9.2",
         "@openzeppelin/contracts-upgradeable": "^4.9.3",
         "crypto-js": "^4.2.0",
