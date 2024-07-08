@@ -1,26 +1,27 @@
 {
   "toolkit": {
-    "registry": "0xD9011F06100B5B485894A62536fE944E1971CDff",
-    "sann": "0x0AD777E9Bbd827b37500016cA89F72bDE3027a12",
-    "registrar": "0x94934E9C2073767F4432273191faB99cFF983bC8",
+    "registry": "0xfB12F7170FF298CDed84C793dAb9aBBEcc01E798",
+    "sann": "0xC220Ed128102d888af857d137a54b9B7573A41b2",
+    "registrar": "0x64f5219563e28EeBAAd91Ca8D31fa3b36621FD4f",
     "usdOracle": "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1",
-    "platformConfig": "0x8e5063824279f9c6d52FAf40985e60B14964A064",
-    "priceOracle": "0x46A63d3271Aa01F6c7C39F0F73441BA402380cF5",
-    "prepaidPlatformFee": "0x4Cf85b0ffb557bb5D826d9f01Cfec793Efb23320",
-    "giftCardBase": "0xFf4c932eB98D2d2F8Dd7d149d1bD7E4675d2F11a",
-    "giftCardVoucher": "0x9C2a4A6BE50102B9241C11089eB0bB98E13a0044",
-    "giftCardLedger": "0x24ca897723337BB8b97FD5AFdcc93E82FC021C85",
-    "giftCardController": "0x01CBB32067a3ECD2b4588d3b87D2be97FAfa1Ac7",
-    "referralHub": "0x2056DCDdb10317CA720bBAEF6B43e91b46d61ffc",
-    "baseCreator": "0x6f8A0549Ab157175248d0E6E2e7C44b8cECebc77",
-    "preRegistrationCreator": "0x92f43a16B9B251e8acE767156c82f4091F908666",
-    "tldFactory": "0x1a96Cebe8a864A58b3DE2A760481D558e21Ed225",
-    "resolver": "0xA46b8eff307c61BE9140dbA0ED1c83F7A67e54Cb",
-    "reverseRegistrar": "0xE8A0f24dB2FACd58f2C4797C502b23d89bFBb908"
+    "platformConfig": "0x12456Fa31e57F91B70629c1196337074c966492a",
+    "priceOracle": "0xD5bFeBDce5c91413E41cc7B24C8402c59A344f7c",
+    "prepaidPlatformFee": "0x38628490c3043E5D0bbB26d5a0a62fC77342e9d5",
+    "giftCardBase": "0x6484EB0792c646A4827638Fc1B6F20461418eB00",
+    "giftCardVoucher": "0xf201fFeA8447AB3d43c98Da3349e0749813C9009",
+    "giftCardLedger": "0xA75E74a5109Ed8221070142D15cEBfFe9642F489",
+    "giftCardController": "0x26291175Fa0Ea3C8583fEdEB56805eA68289b105",
+    "referralHub": "0x04f1A5b9BD82a5020C49975ceAd160E98d8B77Af",
+    "baseCreator": "0xbFD3c8A956AFB7a9754C951D03C9aDdA7EC5d638",
+    "preRegistrationCreator": "0x38F6F2caE52217101D7CA2a5eC040014b4164E6C",
+    "tldFactory": "0xcB0f2a13098f8e841e6Adfa5B17Ec00508b27665",
+    "resolver": "0xc075BC0f734EFE6ceD866324fc2A9DBe1065CBB1",
+    "reverseRegistrar": "0x05bB67cB592C1753425192bF8f34b95ca8649f09",
+    "staking": "0xd9abC93F81394Bd161a1b24B03518e0a570bDEAd"
   },
   "tld": {
-    "identifier": "2278980058326838412885931768886278088815296195947429400367589477101424779",
-    "tldBase": "0x70a722Bd2311CbAe81Cba7f11C16612D12F82DC1",
+    "identifier": "844852203487597742833468634072021243577669407769601426031284364367248390",
+    "tldBase": "0x07b5692E4EdD2b7fd594dD991ad215be916e27A2",
     "referralComissions": [
       {
         "minimumReferralCount": 1,
@@ -35,6 +36,6 @@
         "isValid": true
       }
     ],
-    "publicRegistrationStartTime": 1720004494
+    "publicRegistrationStartTime": 1720422935
   }
 }

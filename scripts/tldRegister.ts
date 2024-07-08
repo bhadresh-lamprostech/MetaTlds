@@ -12,16 +12,16 @@ const dotenv = require('dotenv').config();
 
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
 
-const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
-const providerUrl = process.env.BASE_SEPOLIA_API_KEY;
-const CHAIN_ID = 84532; 
+// const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[0] : [];
+// const providerUrl = process.env.BASE_SEPOLIA_API_KEY;
+// const CHAIN_ID = 84532; 
 
 
 // for localhost
-// const privateKey =
-// "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-// const providerUrl = "http://127.0.0.1:8545";
-// const CHAIN_ID = 31337;
+const privateKey =
+"0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const providerUrl = "http://127.0.0.1:8545";
+const CHAIN_ID = 31337;
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
@@ -87,22 +87,22 @@ async function stakeETH(
     tldName: string,
 ){
     try{
-        const contractABI = require("../artifacts/contracts/admin/TldFactory.sol/TldFactory.json").abi;
-        const contractAddr = Deployments.toolkit.tldFactory;
-        var tldFactory = new ethers.Contract(contractAddr, contractABI, tldOwner);
+        const contractABI = require("../artifacts/contracts/staking/staking.sol/staking.json").abi;
+        const contractAddr = Deployments.toolkit.staking;
+        var staking = new ethers.Contract(contractAddr, contractABI, tldOwner);
 
         // const setStakeLimit = await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
         // await setStakeLimit.wait();
 
-          const stakeTx = await tldFactory.stake(identifier, tldName, {
-          value: ethers.parseEther("0.001"),
+          const stakeTx = await staking.stake(identifier, tldName, {
+          value: ethers.parseEther("0.01"),
           gasLimit: 300000,
           });
           const receipt = await stakeTx.wait();
           // console.log("Staking Tx Receipt", receipt);
         
           // Verify staking details
-          const stakeDetails = await tldFactory.getStakeDetails();
+          const stakeDetails = await staking.getStakeDetails();
           const stakedIdentifier = stakeDetails[1];
           const stakedAmount = stakeDetails[2];
           expect(stakedIdentifier).to.equal(identifier);
@@ -185,16 +185,10 @@ async function registerTLD(
       publicRegistrationPaused: false,
       baseUri: "https://space.id/metadata",
     };
-    // try {
-    //   const tx = await tldFactory.createDomainService(tldName, tldOwner.address, initData);
-    //   var receipt = await tx.wait();
-    // } catch (error) {
-    //   console.error("Error creating domain service:", error);
-    // }
-
+    
     const tx = await tldFactory.createDomainService(tldName, tldOwner.address, initData);
     var receipt = await tx.wait();
-
+    
     console.log("TLD created...");
 
     const tldBaseAddr = await sann.tldBase(identifier);

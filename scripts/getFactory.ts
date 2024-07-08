@@ -25,9 +25,9 @@ const contractAddress = Deployments.toolkit.sann;
 //   "https://eth-holesky.g.alchemy.com/v2/sllQOUylaPM0F9DtUkXe1TxrZ6ueYO1P"
 // );
 
-const provider = new ethers.JsonRpcProvider(process.env.BASE_SEPOLIA_API_KEY);
+// const provider = new ethers.JsonRpcProvider(process.env.BASE_SEPOLIA_API_KEY);
 // for localhost
-// const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
+const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
 
 // Define the contract
 const contract = new ethers.Contract(contractAddress, abi, provider);

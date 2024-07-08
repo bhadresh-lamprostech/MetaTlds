@@ -28,9 +28,11 @@
     },
     "dependencies": {
         "@chainlink/contracts": "^1.1.1",
+        "@ensdomains/ens-contracts": "^1.1.4",
         "@openzeppelin/contracts": "^4.9.2",
         "@openzeppelin/contracts-upgradeable": "^4.9.3",
         "crypto-js": "^4.2.0",
+        "dnssec-oracle": "^0.0.8",
         "merkletreejs": "^0.3.11"
     },
     "devDependencies": {

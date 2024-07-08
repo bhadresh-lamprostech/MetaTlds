@@ -6,8 +6,8 @@ import { getInitializerData } from "./utils";
 import fs from "fs";
 import path from "path";
 
-const CHAIN_ID = 84532;
-// const CHAIN_ID = 31337; // Localhost ChainId
+// const CHAIN_ID = 84532;
+const CHAIN_ID = 31337; // Localhost ChainId
 const ZERO_HASH =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 const DEPLOYMENTS_FILE = path.join(__dirname, "deployments.json");
@@ -43,6 +43,7 @@ async function main() {
       tldFactory: await toolkit.tldFactory.getAddress(),
       resolver: await toolkit.resolver.getAddress(),
       reverseRegistrar: await toolkit.reverseRegistrar.getAddress(),
+      staking: await toolkit.staking.getAddress()
     },
   };
 
@@ -272,40 +273,44 @@ async function deployToolkit(
     `PreRegistrationCreator deployed at: ${await preRegistrationCreator.getAddress()}`
   );
 
-  // console.log("Deploying ETHStaking...");
-  // const ethStakingFactory = await ethers.getContractFactory(
-  //   "EthStaking"
-  // );
-  // const ethStaking = await ethStakingFactory.deploy();
-  // await ethStaking.waitForDeployment();
-  // console.log(
-  //   `ETHStaking deployed at: ${await ethStaking.getAddress()}`
-  // );
-
-
+  
+  
   console.log("Deploying PublicResolver...");
   const resolverFactory = await ethers.getContractFactory("PublicResolver");
   const resolver = await resolverFactory.deploy(platformAdmin.address);
   await resolver.waitForDeployment();
   await resolver
-    .connect(platformAdmin)
-    .initialize(
-      await registry.getAddress(),
-      await registrar.getAddress(),
-      CHAIN_ID
-    );
+  .connect(platformAdmin)
+  .initialize(
+    await registry.getAddress(),
+    await registrar.getAddress(),
+    CHAIN_ID
+  );
   await resolver
-    .connect(platformAdmin)
-    .setNewTrustedController(await reverseRegistrar.getAddress());
+  .connect(platformAdmin)
+  .setNewTrustedController(await reverseRegistrar.getAddress());
   console.log(`PublicResolver deployed at: ${await resolver.getAddress()}`);
+  
+
+  console.log("Deploying Staking...");
+  const stakingFactory = await ethers.getContractFactory(
+    "Staking"
+  );
+  const staking = await stakingFactory.deploy(await ethers.parseEther("0.001"));
+  await staking.waitForDeployment();
+  console.log(
+    `Staking deployed at: ${await staking.getAddress()}`
+  );
+
 
   console.log("Deploying TldFactory...");
   const tldFactoryFactory = await ethers.getContractFactory("TldFactory");
   const tldFactory = await tldFactoryFactory.deploy(await sann.getAddress());
   await tldFactory.waitForDeployment();
   await tldFactory
-    .connect(platformAdmin)
+  .connect(platformAdmin)
     .initialize(
+      await staking.getAddress(),
       await baseCreator.getAddress(),
       await registrar.getAddress(),
       await platformConfig.getAddress(),
@@ -316,9 +321,9 @@ async function deployToolkit(
       await preRegistrationCreator.getAddress(),
       await prepaidPlatformFee.getAddress()
     );
-  console.log(`TldFactory deployed at: ${await tldFactory.getAddress()}`);
-
-
+    console.log(`TldFactory deployed at: ${await tldFactory.getAddress()}`);
+    
+    
   console.log("0");
   await sann
   .connect(platformAdmin)
@@ -370,8 +375,6 @@ async function deployToolkit(
   .connect(platformAdmin)
   .setController(await registrar.getAddress(), true);
   console.log("9");
-
-  await tldFactory.setStakeLimit(ethers.parseEther("0.001"));
   
   return {
     registry,
@@ -391,7 +394,7 @@ async function deployToolkit(
     tldFactory,
     resolver,
     reverseRegistrar,
-    // ethStaking,
+    staking,
   };
 }
 

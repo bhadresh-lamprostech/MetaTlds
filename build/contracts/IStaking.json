@@ -1,0 +1,101 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "tld",
+        "type": "string"
+      }
+    ],
+    "name": "checkAvailability",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getStakeDetails",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "identifier",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "stakedAmount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tldOwner",
+        "type": "address"
+      }
+    ],
+    "name": "hasStaked",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "isStaked",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "setStakeLimit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "identifier",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "tld",
+        "type": "string"
+      }
+    ],
+    "name": "stake",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unStake",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

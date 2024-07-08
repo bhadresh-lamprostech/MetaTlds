@@ -18,6 +18,8 @@ import {IPlatformConfig} from "./IPlatformConfig.sol";
 import {IPreRegistrationCreator} from "../proxy/IPreRegistrationCreator.sol";
 import {PrepaidPlatformFee} from "../admin/PrepaidPlatformFee.sol";
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+// import "@ensdomains/dnssec-oracle/build/contracts/DNSSEC";
+import {IStaking} from "../staking/IStaking.sol";
 // TldFactory is a controller to create a new TLD.
 contract TldFactory is ITldFactory, TldAccessable, Initializable {
 
@@ -37,6 +39,8 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     /// including PreRegistrationState and Auction
     IPreRegistrationCreator public preRegiCreator;
 
+    IStaking public stakingContract;
+
     /// giftcard
     GiftCardVoucher public giftCardVoucher;
     GiftCardLedger public giftCardLedger;
@@ -47,18 +51,10 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     /// prepaid platform fee
     PrepaidPlatformFee public prepaidPlatformFee;
 
-    mapping(address => uint256) public stakes;
-    mapping(address => uint256) public identifiers;
-    uint256 public MINIMUM_STAKE;
-
-    string[] public tldRegistered;
-
-    event Staked(address indexed user, uint256 amount);
-    event UnStake(address indexed user, uint256 amount);
-
     constructor(ISANN _sann) TldAccessable(_sann) {}
 
     function initialize(
+        IStaking _stakingContract,
         IBaseCreator _baseCreator,
         IRegistrarController _controller,
         address _platformConfig,
@@ -71,6 +67,7 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
     ) public initializer onlyPlatformAdmin {
         require(_priceOracle != address(0), "invalid price oracle");
 
+        stakingContract = _stakingContract;
         platformConfig = _platformConfig;
         baseCreator = _baseCreator;
         defaultPriceOracle = _priceOracle;
@@ -179,7 +176,6 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
             address(registrar),
             baseAddress
         );
-        tldRegistered.push(tld);
         return identifier;
     }
 
@@ -333,51 +329,8 @@ contract TldFactory is ITldFactory, TldAccessable, Initializable {
         emit SetDefaultPriceOracle(defaultPriceOracle);
     }
 
-    /****************  ETH STAKING FUNCTIONS    ***************** */
-
-    function stake(uint256 identifier, string calldata tld) external payable {
-        require(msg.value >= MINIMUM_STAKE, "Insufficient staking amount");
-        require(checkAvailability(tld), "TLD you're trying to register already exists");
-        identifiers[msg.sender] = identifier;
-        stakes[msg.sender] += msg.value;
-        emit Staked(msg.sender, msg.value);
-    }
-
-    function checkAvailability(string calldata tld) public view returns (bool) {
-        bool isRegistered = false;
-        for (uint i = 0; i < tldRegistered.length; i++) {
-            if (keccak256(abi.encodePacked(tldRegistered[i])) == keccak256(abi.encodePacked(tld))) {
-                isRegistered = true;
-                break;
-            }
-        }
-        return !isRegistered;
-    }
-
-    function getStakeDetails() external view returns (address owner, uint256 identifier, uint256 stakedAmount) {
-        return (msg.sender, identifiers[msg.sender], stakes[msg.sender]);
-    }
-
-    // Function to withdraw staked ETH
-    function unStake() external {
-
-        // ******** TO DO: ADD THE REQUIRE CONDITIONS FOR UNSTAKING ***********
-        uint256 stakeAmount = stakes[msg.sender];
-        require(stakeAmount > 0, "No stake to withdraw");
-        stakes[msg.sender] = 0;
-        payable(msg.sender).transfer(stakeAmount);
-        emit UnStake(msg.sender, stakeAmount);
-    }
-
-    // Function to update the MINIMUM_STAKE amount
-    function setStakeLimit(uint256 amount) onlyPlatformAdmin external {
-        MINIMUM_STAKE = amount;
-    }
-
-    // Modifier to check if the user has staked the required amount
     modifier hasStaked() {
-        require(stakes[msg.sender] >= MINIMUM_STAKE, "You must stake the required amount of ETH");
+        require(stakingContract.hasStaked(msg.sender), "Staking is required for registering TLD");
         _;
     }
-
 }

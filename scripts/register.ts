@@ -11,21 +11,21 @@ const contractAddress = Deployments.toolkit.registrar;
 const resolverAddress = Deployments.toolkit.resolver;
 
 // for localhost
-// const privateKey =
-// "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-// const providerUrl = "http://127.0.0.1:8545";
+const privateKey =
+"0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const providerUrl = "http://127.0.0.1:8545";
 
 const identifier = Deployments.tld.identifier;
 
 console.log(identifier)
 
-const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[1] : [];
-const providerUrl = process.env.BASE_SEPOLIA_API_KEY;
+// const privateKey = process.env.PRIVATE_KEYS? process.env.PRIVATE_KEYS.split(',')[1] : [];
+// const providerUrl = process.env.BASE_SEPOLIA_API_KEY;
 
 const provider = new ethers.JsonRpcProvider(providerUrl);
 const wallet = new ethers.Wallet(privateKey, provider);
 
-const domainToRegister = "bak";
+const domainToRegister = "baked";
 const registrationDuration = 31556952; // 1 year in seconds
 
 const sannAbi = ["function tld(uint256) view returns (string)"];
@@ -78,30 +78,29 @@ async function registerDomain() {
         `Submitting registration transaction for ${domainToRegister}.${tldName}`
       );
 
+      const registrationTx = await contract.bulkRegister(
+        toBigInt(identifier),
+        [domainToRegister],
+        wallet.address,
+        registrationDuration,
+        resolverAddress,
+        true,
+        ["0x"],
+        {
+          value: base + premium,
+          // gasLimit: 100000, // Manually set a higher gas limit
+        }
+      );
 
-      // const registrationTx = await contract.bulkRegister(
-      //   toBigInt(identifier),
-      //   [domainToRegister],
-      //   wallet.address,
-      //   registrationDuration,
-      //   resolverAddress,
-      //   true,
-      //   ["0x"],
-      //   {
-      //     value: base + premium,
-      //     gasLimit: 100000, // Manually set a higher gas limit
-      //   }
-      // );
-
-    //   const receipt = await registrationTx.wait();
-    //   console.log(
-    //     `Registration successful. for ${domainToRegister}.${tldName} Transaction hash:`,
-    //     receipt.hash
-    //   );
-    // } else {
-    //   console.log(
-    //     `${domainToRegister}.${tldName} is not available for registration.`
-    //   );
+      const receipt = await registrationTx.wait();
+      console.log(
+        `Registration successful. for ${domainToRegister}.${tldName} Transaction hash:`,
+        receipt.hash
+      );
+    } else {
+      console.log(
+        `${domainToRegister}.${tldName} is not available for registration.`
+      );
     }
   } catch (error) {
     console.error("Error registering domain:", error);
